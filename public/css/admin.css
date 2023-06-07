@@ -1,0 +1,261 @@
+@font-face {
+    font-family: "Noah";
+    src: url("../assets/fonts/Noah-Regular.eot");
+    src: url("../assets/fonts/Noah-Regular.woff") format("woff"),
+}
+html, body{
+  min-height: 100%;
+  height: 100%;
+}
+.body{
+  text-align: center;
+  font-family: Noah, sans-serif;
+}
+footer{
+  width: 100%;
+  height: 70px;
+  bottom: 0;
+}
+.sidebar-heading{
+  padding: 0;
+}
+
+.sidebar-heading:before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 15px;
+    width: calc(100% - 30px);
+    height: 1px;
+    background-color: rgba(255,255,255,.3);
+}
+
+#sidebarToggle{
+  border-radius: 25px;
+}
+
+.pagination{
+    justify-content: center;
+}
+
+.content-body{
+  display: flex;
+  min-height: 85vh;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+.navbar-brand > img{
+  width: auto;
+  height: 40px;
+}
+.dropdown-item {
+  font-family: Noah, sans-serif;
+  line-height: 2.2em;
+}
+.starter-template {
+  font-family: Noah, sans-serif;
+}
+.starter-template h1 {
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+}
+#img-logo{
+  margin: 0 auto;
+  display: block;
+}
+
+.list-group{
+  border-radius: 10px;
+}
+
+.list-group-item{
+  border: none !important;
+  padding-bottom: 0 !important;
+  border-radius: 10px;
+}
+
+.list-group-item > svg{
+  float: left;
+  font-size: 18pt;
+  margin-right: 20px;
+}
+
+.navbar {
+  padding: 25px;
+}
+
+.navbar-light .navbar-nav .nav-link {
+  font-family: Noah, sans-serif;
+}
+
+.cards{
+  margin-top: 2em;
+  margin-left: 20em;
+  color: #ffff;
+}
+
+.card{
+  height: 12em;
+  margin-left: 2em;
+}
+
+.edit-opr {
+  -webkit-box-shadow: 0px 1px 10px 2px rgba(34, 60, 80, 0.2);
+  -moz-box-shadow: 0px 1px 10px 2px rgba(34, 60, 80, 0.2);
+  box-shadow: 0px 1px 10px 2px rgba(34, 60, 80, 0.2);
+  border-radius: 10px;
+  padding-top: 2em;
+  padding-bottom: 1em;
+}
+
+.form-control{
+    width: 100%;
+  border-radius: 0;
+  border: none;
+  border-bottom: #ced4da solid 1px;
+  background-color: white !important;
+}
+
+.form-control:focus {
+  border: none;
+  border-bottom: #86b7fe solid 2px;
+  box-shadow: none !important;
+}
+
+.input-group > input, .input-group > .form-control{
+    width: 100%;
+}
+
+.image-input > #image{
+    width: 50%;
+    align-self: flex-end;
+}
+
+.image-input > figure{
+    margin: 0 20px 0 0;
+}
+
+.image-input > label{
+    width: 100%;
+}
+
+.input-group > label{
+    padding-top: 20px;
+    font-size: 10pt;
+    color: #636464;
+}
+
+.pro-dropdown-btn:focus {
+  box-shadow: none !important;
+}
+
+.card-title{
+  padding-top: 3.5em;
+  color: #ffff !important; /* For Example */
+}
+
+a {
+    text-decoration: none !important;
+}
+
+input{
+  outline: none !important;
+}
+
+select{
+  outline: none !important;
+}
+
+.dropdown-menu{
+  border: none !important;
+  border-radius: 0 !important;
+  -webkit-box-shadow: 1px 5px 29px -5px rgba(34, 60, 80, 0.2);
+  -moz-box-shadow: 1px 5px 29px -5px rgba(34, 60, 80, 0.2);
+  box-shadow: 1px 5px 29px -5px rgba(34, 60, 80, 0.2);
+}
+
+.form-select{
+  border: none !important;
+  border-radius: 0 !important;
+  border-bottom: 1px solid black !important;
+}
+
+.table>:not(caption)>*>* {
+  padding: 1em .5em .5em .5em !important;
+}
+
+#sidebar-wrapper{
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 20px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 12px;
+  width: 12px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #00962c;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(20px);
+  -ms-transform: translateX(20px);
+  transform: translateX(20px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.order-container{
+    max-width: 800px;
+}
+.notes{
+    padding: 20px;
+}
+
+.note-item{
+    padding: 10px;
+}
