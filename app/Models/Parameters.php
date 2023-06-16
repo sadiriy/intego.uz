@@ -7,11 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Parameters extends Model
 {
-    protected $table = "parameters";
+    protected $table = "product_parameters";
     public $timestamps = false;
 
     protected $fillable = [
-        'id', 'value', 'product_id', 'attribute_id'
+        'value', 'product_id', 'attribute_id'
     ];
 
     public function attributes(){

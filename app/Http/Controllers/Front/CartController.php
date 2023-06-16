@@ -18,8 +18,13 @@ class CartController extends Controller
     }
 
     public function store(Request $request){
-        $duplicates = Cart::search(function ($cartItem, $rowId) use ($request){
-            return $cartItem->id === $request->id;
+        $cart_data = $request->validate([
+            'id' => 'required|integer|exists:products',
+            'name' => 'required|string',
+            'count' => 'required|numeric|gte:1',
+        ]);
+        $duplicates = Cart::search(function ($cartItem, $rowId) use ($cart_data){
+            return $cartItem->id === $cart_data['id'];
         });
 
         if ($duplicates->isNotEmpty()){
@@ -33,10 +38,7 @@ class CartController extends Controller
     }
 
     public function destroy($id){
-
         Cart::remove($id);
-
-
         return back()->with('success_message', __('Товар удален'));
     }
 

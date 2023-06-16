@@ -29,7 +29,9 @@ Route::get('/', [\App\Http\Controllers\Front\MainPageController::class, 'index']
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/category/{category_id}', [App\Http\Controllers\Front\ProductController::class, 'index'])->name('front_products.index');
+Route::get('/category/{category}', [App\Http\Controllers\Front\CategoryController::class, 'index'])->name('front.category.index');
+
+Route::get('/product/{product}', [App\Http\Controllers\Front\ProductController::class, 'index'])->name('front.product.index');
 
 Route::get('/about-us', 'App\Http\Controllers\Admin\PageController@about')->name('about');
 

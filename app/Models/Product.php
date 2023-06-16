@@ -11,8 +11,21 @@ class Product extends Model
     public $timestamps = false;
 
     protected $fillable = [
-        'id', 'name_ru', 'name_en', 'name_uz', 'name_tr', 'description_ru', 'description_en', 'description_uz', 'description_tr', 'parameters', 'category_id'
+        'id', 'slug', 'name_ru', 'description_ru', 'price', 'category_id'
     ];
+
+    public function getMainProducts(int $amount){
+        return Product::where('is_popular', 1)->take($amount)->get() ?? null;
+    }
+
+    public function getCategoryProducts(Category $category){
+        return Product::where('category_id', $category->id)->get() ?? null;
+    }
+
+    public function getRecommendedProducts(int $amount, Product $product){
+        return Product::inRandomOrder()->where('category_id', $product->category_id)->where('id', '!=', $product->id)->limit($amount)->get();
+
+    }
 
     public function category(){
         return $this->belongsTo(Category::class, 'category_id', 'id');

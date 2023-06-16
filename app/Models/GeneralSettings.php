@@ -7,10 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class GeneralSettings extends Model
 {
-    protected $table = "settings";
+    protected $table = "website_settings";
     public $timestamps = false;
 
     protected $fillable = [
-        'id', 'phone', 'email', 'logo', 'logo_white', 'fb_link', 'tg_link', 'wa_link', 'li_link'
+        'id', 'phone', 'email', 'logo', 'fb_ling', 'tg_link', 'in_link'
     ];
 }

@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 
@@ -13,6 +12,10 @@ class Order extends Model
     public $timestamps = false;
 
     protected $fillable = [
-        'id', 'orderDetails', 'clientName', 'clientPhone', 'date', 'checked'
+        'id', 'total_sum', 'client_name', 'client_phone', 'status',
     ];
+
+    public function order_products(){
+        $this->hasMany(OrderProducts::class, 'order_id', 'id');
+    }
 }

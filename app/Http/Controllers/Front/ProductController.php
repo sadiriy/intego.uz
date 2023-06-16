@@ -10,16 +10,13 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
-    public function index($category_id){
-        $products = Product::with('parameters', 'parameters.attributes')->where('category_id', $category_id)->get();
-        $category = Category::where('id', $category_id)->firstOrFail();
-        $attributes = Attributes::where('category_id', $category_id)->get();
+    public function index(Product $product){
+        $product = Product::where('id', $product->id)->firstOrFail();
+        $recommended_products = (new Product)->getRecommendedProducts(4, $product);
 
-
-        return view('front/products')->with([
-            'products' => $products,
-            'category' => $category,
-            'attributes' => $attributes,
+        return view('front/product')->with([
+            'product' => $product,
+            'recommended_products' => $recommended_products,
         ]);
     }
 }

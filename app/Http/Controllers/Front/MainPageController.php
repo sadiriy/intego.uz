@@ -5,40 +5,21 @@ namespace App\Http\Controllers\Front;
 use App\Http\Controllers\Controller;
 use App\Models\Calculation;
 use App\Models\Category;
-use App\Models\LmeCourse;
-use App\Models\MainPageNumbers;
-use App\Models\MainPagePrivileges;
 use App\Models\MainPageSliders;
-use App\Models\Partners;
 use App\Models\PriceList;
+use App\Models\Product;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Cache;
-use Illuminate\Support\Facades\Http;
 
 class MainPageController extends Controller
 {
     public function index(){
-        $categories = Category::orderBy('position')->get();
-//        $api = LmeCourse::getLmeCourse();
-//        $copper = round(1/$api['LME-XCU']*32150.746361894, 6);
-//        $aluminium = round(1/$api['LME-ALU']*32150.746361894, 6);
-        $date = Carbon::now()->format('d.m.Y');
-        $numbers = MainPageNumbers::all();
-        $privileges = MainPagePrivileges::all();
-        $sliders = MainPageSliders::firstOrFail();
-        $partners = Partners::all();
-
+        $categories = (new Category)->getMainCategories(3);
+        $products = (new Product)->getMainProducts(6);
 
         return view('front/index')->with([
-            'categories' => $categories,
-//            'copper' => $copper,
-//            'aluminium' => $aluminium,
-            'date' => $date,
-            'numbers' => $numbers,
-            'privileges' => $privileges,
-            'sliders' => $sliders,
-            'partners' => $partners
+            'main_categories' => $categories,
+            'products' => $products
         ]);
     }
 

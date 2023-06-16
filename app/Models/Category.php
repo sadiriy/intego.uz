@@ -11,15 +11,23 @@ class Category extends Model
     public $timestamps = false;
 
     protected $fillable = [
-        'id', 'name_ru', 'name_en', 'name_uz', 'name_tr', 'image', 'description_ru', 'description_en', 'description_uz', 'description_tr', 'position',
-        'text_ru', 'text_en', 'text_uz', 'text_tr', 'text_ar',
+        'id', 'name_ru', 'description_ru', 'image', 'position',
     ];
+
+    public function getMainCategories(int $amount){
+        return Category::where('is_popular', 1)->take($amount)->get() ?? null;
+    }
+
+    public function getAllCategories()
+    {
+        return Category::orderBy('position', 'asc')->orderBy('id', 'asc')->get() ?? null;
+    }
 
     public function products(){
         return $this->hasMany(Product::class, 'category_id', 'id');
     }
 
-    public function attributes(){
-        return $this->hasMany(Attributes::class, 'category_id', 'id');
+    public function categoryAttributes(){
+        return $this->hasMany(CategoryAttributes::class, 'category_id', 'id');
     }
 }

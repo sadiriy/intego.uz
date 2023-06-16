@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\Category;
 use App\Models\MainPageSliders;
 use App\Models\Pages;
 use App\Models\GeneralSettings;
@@ -29,10 +30,10 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Paginator::useBootstrap();
-        $pages = Pages::all();
+        $categories = (new Category)->getAllCategories();
         $settings = GeneralSettings::all()->firstOrFail();
         View::share([
-            'pages' => $pages,
+            'categories' => $categories,
             'settings' => $settings,
             ]);
     }

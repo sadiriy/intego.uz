@@ -13,8 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->foreignId('role_id')->constrained();
+        Schema::create('orders', function (Blueprint $table) {
+            $table->id();
+            $table->decimal('total_sum', 16)->nullable();
+            $table->string('client_name');
+            $table->string('client_phone');
+            $table->integer('status');
+            $table->timestamps();
         });
     }
 
@@ -25,8 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('orders');
     }
 };
