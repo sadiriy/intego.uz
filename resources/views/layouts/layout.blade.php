@@ -26,8 +26,6 @@
 
     <!-- Styles -->
     <link rel="icon" href="{{ asset('img/icon.png') }}">
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/app2.css') }}" rel="stylesheet">
 
     <link href="{{ asset('css/fonts/Greenwich/stylesheet.css') }}" rel="stylesheet">
 
@@ -168,10 +166,7 @@
 {{--                    <img src="{{ asset($settings->logo_white ?? "") }}" alt="logo">--}}
 {{--                </div>--}}
                 <div class="footer-copyrights">
-                    <ul class="unioncast">
-                        <li>2023 INTEGO</li>
-{{--                        <li><a href="#">{{__('Политика конфиденциальности') }}</a></li>--}}
-                    </ul>
+                    <span>2023 INTEGO</span>
                 </div>
 
             </div>

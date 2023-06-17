@@ -9,7 +9,6 @@
 @section('content')
 
     <section class="category-main container">
-        <h4 class="breadcrumb">{{ __('Каталог') }}</h4>
         <h2 class="category-title">{{ $products->first()->category->name_ru }}</h2>
         <div class="row" style="justify-content: center">
             <p class="category-description-text">{{ $products->first()->category->description_ru }}</p>
@@ -39,9 +38,9 @@
                                         {{ $product->name_ru }}
                                     </a>
                                 </div>
-                                <div class="product-price">{{ $product->price }} сум</div>
+                                <div class="product-price">{{ number_format($product->price, 0, '', ' ') }} сум</div>
                                 <div class="product-action">
-                                    <form action="{{ route('cart.store')}}" method="POST">
+                                    <form class="cartAddForm" action="{{ route('cart.store')}}" method="POST">
                                         @csrf
                                         @method('POST')
                                         <input type="hidden" name="id" value="{{ $product->id }}">

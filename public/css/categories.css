@@ -1,6 +1,6 @@
 .category-main{
     display: block;
-    margin-top: 30px;
+    margin-top: 40px;
 }
 .category-title{
     font-size: 32px;
@@ -35,7 +35,7 @@
 .product-price{
     margin-bottom: 10px;
 }
-.product-action > form > button{
+.cartAddForm > button{
     outline-style: none;
     font-size: 13px;
     text-transform: uppercase;
@@ -50,8 +50,103 @@
     transition: 0.3s;
 }
 
-.product-action > button:hover{
+.cartAddForm > button:hover{
     color: #fff;
     background-color: #1b98e0;
     border-color: #1b98e0;
+}
+
+/*Product page*/
+.product-main{
+    display: block;
+    margin-top: 40px;
+}
+.product-main{
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: space-around;
+}
+.product-image > img{
+    width: 300px;
+    height: auto;
+    display: inline-block;
+}
+.product-info > .product-info-item > span{
+    display: block;
+}
+.product-info > .product-info-item > #name{
+    font-weight: 600;
+    font-size: 24pt;
+    line-height: 24pt;
+}
+.product-info > .product-info-item > #category > a{
+    color: #5f707a;
+}
+.product-info > .product-info-item > #category > a:hover{
+    text-decoration: underline;
+}
+.product-info > .product-info-item > #price{
+    font-weight: 500;
+    margin-top: 10px;
+    font-size: 22pt;
+}
+
+
+.product-info-item > .cartAddForm > button{
+    width: 50%;
+}
+
+#characteristics > .properties > li > span{
+    display: inline-block;
+    width: 38%;
+    margin: 0 0 7px;
+    vertical-align: top;
+    background: inherit;
+}
+
+#characteristics > .properties > li > .name::after{
+    position: absolute;
+    right: 5px;
+    left: 0;
+    height: 1px;
+    margin: 14px 0 0 14px;
+    content: '';
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAABCAAAAAA+i0toAAAAAnRSTlMA/1uRIrUAAAAMSURBVHheY7j1/z8ABY8C2UtBe8oAAAAASUVORK5CYII=) 0 0 repeat-x;
+    width: 42%;
+}
+
+#characteristics > .properties > li > .name > span{
+    background-color: #fff;
+    position: relative;
+    padding-right: 10px;
+    z-index: 5;
+}
+
+#characteristics > .properties > li > .name{
+    display: inline-block;
+    margin: 0 0 7px;
+    vertical-align: top;
+    background: inherit;
+}
+#characteristics > .properties > li > .value{
+    background-color: #fff;
+    position: relative;
+    padding-left: 10px;
+}
+.tabSwitcher{
+    border: none;
+    border-bottom: 1px solid #e5ebee;
+    margin-top: 50px;
+}
+.tab{
+    padding: 30px;
+}
+.btn-tab-switcher{
+    border: none;
+    color: black;
+    background-color: white;
+    padding: 10px 20px;
+}
+.tabSwitcher > .active{
+    border-bottom: 2px solid #1b98e0;
 }

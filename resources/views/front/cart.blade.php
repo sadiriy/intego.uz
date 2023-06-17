@@ -10,7 +10,10 @@
 @section('content')
     <div class="cart-container">
         <h1>{{ __('Корзина') }}</h1>
-        <h3>{{ __('В корзине товаров') }}: {{Cart::count()}}</h3>
+        <div class="cart-header">
+            <h3>{{ __('В корзине товаров') }}: {{Cart::count()}}</h3>
+            <a class="btn btn-danger" onclick="return confirm({{ __('Вы точно хотите очистить корзину') }})" style="background-color: #c74c4c" href="{{ route('cart.clear') }}">{{ __('Очистить') }}</a>
+        </div>
         <section class="cart-section row">
             <div class="col-md-12 col-lg-12 col-xl-12 cart-table">
                 <table class="table table-hover products-table">
@@ -29,9 +32,9 @@
                         <tr class="product-table-row">
                             <td class="product-table-value">{{ $loop->iteration }}</td>
                             <td class="product-table-value">{{$item->model->name_ru }}</td>
-                            <td class="product-table-value">{{ $item->model->price }}</td>
-                            <td class="product-table-value"><input style="background-color: #fff; width: 80px; padding: 5px; text-align: center" type="text" value="1"></td>
-                            <td class="product-table-value">{{ $item->model->price * $item->model->price }}</td>
+                            <td class="product-table-value">{{ number_format($item->model->price, 0, '', ' ') }} сум</td>
+                            <td class="product-table-value" style="text-align: center">{{ $item->qty }}</td>
+                            <td class="product-table-value">{{ number_format($item->total, 0, '', ' ') }} сум</td>
                             <td class="product-table-value">
                                 <form method="POST" action="{{ route('cart.remove' , $item->rowId) }}">
                                     @csrf
@@ -67,9 +70,6 @@
 {{--                </form>--}}
 {{--            </div>--}}
         </section>
-
-
-        <a class="btn btn-danger" onclick="return confirm({{ __('Вы точно хотите очистить корзину') }})" style="background-color: #c74c4c" href="{{ route('cart.clear') }}">{{ __('Очистить') }}</a>
     </div>
 
 

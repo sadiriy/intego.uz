@@ -1,13 +1,19 @@
 .cart-container{
-    max-width: 80%;
+    max-width: 1170px;
     margin: 50px auto;
     min-height: 70vh;
 }
 .cart-container > h1{
     font-size: 22pt;
 }
-.cart-container > h3{
-    font-size: 16pt;
+.cart-header{
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+}
+.cart-header > h3{
+    font-size: 14pt;
+    line-height: 30px;
 }
 .cart-table{
     padding-right: 30px;

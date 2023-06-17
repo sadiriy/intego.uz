@@ -20,18 +20,17 @@ class CartController extends Controller
     public function store(Request $request){
         $cart_data = $request->validate([
             'id' => 'required|integer|exists:products',
-            'name' => 'required|string',
             'count' => 'required|numeric|gte:1',
         ]);
         $duplicates = Cart::search(function ($cartItem, $rowId) use ($cart_data){
             return $cartItem->id === $cart_data['id'];
         });
-
         if ($duplicates->isNotEmpty()){
             return redirect()->route('cart.index')->with('success_message', __('Данный товар уже добавлен'));
         }
-
-        Cart::add($request->id, $request->name, 1, 0)
+        //retrieving data from products
+        $product = Product::where('id', $cart_data['id'])->firstOrFail();
+        Cart::add($cart_data['id'], $product->name_ru, $cart_data['count'], $product->price)
         ->associate('App\Models\Product');
 
         return back()->with('success_message', __('Товар добавлен'));

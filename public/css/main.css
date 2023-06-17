@@ -456,13 +456,6 @@ i {
     width: 100%;
 }
 
-input {
-    background-color: #383e70;
-    border: none;
-    border-radius: 8px;
-}
-
-
 .form-container {
     width: 40%;
     display: flex;
@@ -639,8 +632,7 @@ footer {
     justify-content: space-between;
 }
 
-ul{
-    list-style: none;
+.footer-copyrights > span{
     color: #fff;
 }
 

@@ -23,8 +23,7 @@ class Product extends Model
     }
 
     public function getRecommendedProducts(int $amount, Product $product){
-        return Product::inRandomOrder()->where('category_id', $product->category_id)->where('id', '!=', $product->id)->limit($amount)->get();
-
+        return Product::inRandomOrder()->where('category_id', $product->category_id)->where('id', '!=', $product->id)->limit($amount)->get() ?? null;
     }
 
     public function category(){
