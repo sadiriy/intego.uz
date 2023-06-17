@@ -50,7 +50,7 @@
     transition: 0.3s;
 }
 
-.cartAddForm > button:hover{
+.cartAddForm > button:hover, .checkout-button:hover{
     color: #fff;
     background-color: #1b98e0;
     border-color: #1b98e0;

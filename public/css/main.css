@@ -343,16 +343,15 @@ i {
 }
 
 .input-group{
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .input-group > label{
     width: 100%;
 }
 .input-group > .form-control{
-    padding: 15px;
-    font-size: 14pt;
-    border-radius: 10px !important;
+    padding: 10px;
+    font-size: 11pt;
 }
 
 .popular-categories {

@@ -9,7 +9,6 @@ class Order extends Model
 {
     use Notifiable;
     protected $table = "orders";
-    public $timestamps = false;
 
     protected $fillable = [
         'id', 'total_sum', 'client_name', 'client_phone', 'status',

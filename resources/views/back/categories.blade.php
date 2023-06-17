@@ -25,24 +25,8 @@
                             <input name="name_ru" id="name_ru" type="text" class="form-control" required>
                         </div>
                         <div class="input-group input-group-sm">
-                            <label style="margin-bottom: 10px;">Название категории (EN)</label>
-                            <input name="name_en" id="name_en" type="text" class="form-control" required>
-                        </div>
-                        <div class="input-group input-group-sm">
-                            <label style="margin-bottom: 10px;">Название категории (UZ)</label>
-                            <input name="name_uz" id="name_uz" type="text" class="form-control" required>
-                        </div>
-                        <div class="input-group input-group-sm">
-                            <label style="margin-bottom: 10px;">Название категории (TR)</label>
-                            <input name="name_tr" id="name_tr" type="text" class="form-control" required>
-                        </div>
-                        <div class="input-group input-group-sm">
-                            <label style="margin-bottom: 10px;">Название категории (AR)</label>
-                            <input name="name_ar" id="name_ar" type="text" class="form-control" required>
-                        </div>
-                        <div class="input-group input-group-sm">
                             <label for="image" style="margin-bottom: 10px;">Изображение категории</label>
-                            <figure>
+                            <figure style="width: 100%">
                                 <img width="50px" height="50px" id="image-icon" src="">
 {{--                                <figcaption><a href="" id="option_eng"></a></figcaption>--}}
                             </figure>
@@ -50,47 +34,15 @@
                         </div>
                         <div class="input-group input-group-sm">
                             <label style="margin-bottom: 10px;">Описание категории (RU)</label>
-                            <input name="description_ru" id="description_ru" type="text" class="form-control" required>
-                        </div>
-                        <div class="input-group input-group-sm">
-                            <label style="margin-bottom: 10px;">Описание категории (EN)</label>
-                            <input name="description_en" id="description_en" type="text" class="form-control" required>
-                        </div>
-                        <div class="input-group input-group-sm">
-                            <label style="margin-bottom: 10px;">Описание категории (UZ)</label>
-                            <input name="description_uz" id="description_uz" type="text" class="form-control" required>
-                        </div>
-                        <div class="input-group input-group-sm">
-                            <label style="margin-bottom: 10px;">Описание категории (TR)</label>
-                            <input name="description_tr" id="description_tr" type="text" class="form-control" required>
-                        </div>
-                        <div class="input-group input-group-sm">
-                            <label style="margin-bottom: 10px;">Описание категории (AR)</label>
-                            <input name="description_ar" id="description_ar" type="text" class="form-control" required>
-                        </div>
-                        <div class="input-group input-group-sm">
-                            <label style="margin-bottom: 10px;">Текст категории (RU)</label>
-                            <textarea name="text_ru" id="text_ru" type="text" class="form-control"></textarea>
-                        </div>
-                        <div class="input-group input-group-sm">
-                            <label style="margin-bottom: 10px;">Текст категории (EN)</label>
-                            <textarea name="text_en" id="text_en" type="text" class="form-control"></textarea>
-                        </div>
-                        <div class="input-group input-group-sm">
-                            <label style="margin-bottom: 10px;">Текст категории (UZ)</label>
-                            <textarea name="text_uz" id="text_uz" type="text" class="form-control"></textarea>
-                        </div>
-                        <div class="input-group input-group-sm">
-                            <label style="margin-bottom: 10px;">Текст категории (TR)</label>
-                            <textarea name="text_tr" id="text_tr" type="text" class="form-control"></textarea>
-                        </div>
-                        <div class="input-group input-group-sm">
-                            <label style="margin-bottom: 10px;">Текст категории (AR)</label>
-                            <textarea name="text_ar" id="text_ar" type="text" class="form-control"></textarea>
+                            <textarea name="description_ru" id="description_ru" type="text" class="form-control" required></textarea>
                         </div>
                         <div class="input-group input-group-sm">
                             <label style="margin-bottom: 10px;">Позиция</label>
                             <input name="position" id="position" type="text" class="form-control" required>
+                        </div>
+                        <div class="input-group input-group-sm">
+                            <label style="margin-bottom: 10px;">Популярный</label>
+                            <input name="is_popular" id="is_popular" type="checkbox">
                         </div>
                     </div>
                     <div class="modal-footer" style="border: none;">
@@ -122,8 +74,6 @@
                             <th scope='col' class='col-1 text-center'>№</th>
                             <th scope='col' class='col-3 text-center'>Название</th>
                             <th scope='col' class='col-2 text-center'>Изображение</th>
-                            <th scope='col' class='col-2 text-center'>Описание</th>
-                            <th scope='col' class='col-2 text-center'>Текст</th>
                             <th scope='col' class='col-2 text-center'>Позиция</th>
                             <th scope='col' class='col-2 text-center'>Действие</th>
                         </tr>
@@ -137,13 +87,7 @@
                                 </td>
                                 <td class='text-center'>
                                     <img width="70px" height="auto" alt="{{ $category->name_ru }}"
-                                         src="{{ asset('img/categories/' . $category->image) }}">
-                                </td>
-                                <td class='text-center'>
-                                    {{$category->description_ru}}
-                                </td>
-                                <td class='text-center'>
-                                    {{$category->text_ru}}
+                                         src="{{ asset($category->image) }}">
                                 </td>
                                 <td class='text-center'>
                                     {{$category->position}}
@@ -154,22 +98,10 @@
                                        data-bs-target="#exampleModal"
                                        data-id="{{ $category->id }}"
                                        data-name_ru="{{ $category->name_ru }}"
-                                       data-name_en="{{ $category->name_en }}"
-                                       data-name_uz="{{ $category->name_uz }}"
-                                       data-name_tr="{{ $category->name_tr }}"
-                                       data-name_ar="{{ $category->name_ar }}"
                                        data-image="{{ $category->image }}"
                                        data-description_ru="{{ $category->description_ru }}"
-                                       data-description_en="{{ $category->description_en }}"
-                                       data-description_uz="{{ $category->description_uz }}"
-                                       data-description_tr="{{ $category->description_tr }}"
-                                       data-description_ar="{{ $category->description_ar }}"
-                                       data-text_ru="{{ $category->text_ru }}"
-                                       data-text_en="{{ $category->text_en }}"
-                                       data-text_uz="{{ $category->text_uz }}"
-                                       data-text_tr="{{ $category->text_tr }}"
-                                       data-text_ar="{{ $category->text_ar }}"
                                        data-position="{{ $category->position }}"
+                                       data-is_popular="{{ $category->is_popular }}"
                                        class='btn btn-primary'><i class='fa fa-edit'></i>
                                     </a>
                                     <form method="POST" action="{{ route('categories.destroy' , $category) }}"
@@ -195,45 +127,16 @@
     <script>
         $('#exampleModal').on('show.bs.modal', function (event) {
             var button = $(event.relatedTarget)
-            var id = button.data('id')
-            var name_ru = button.data('name_ru')
-            var name_en = button.data('name_en')
-            var name_uz = button.data('name_uz')
-            var name_tr = button.data('name_tr')
-            var name_ar = button.data('name_ar')
-            var image = button.data('image')
-            var description_ru = button.data('description_ru')
-            var description_en = button.data('description_en')
-            var description_uz = button.data('description_uz')
-            var description_tr = button.data('description_tr')
-            var description_ar = button.data('description_ar')
-            var text_ru = button.data('text_ru')
-            var text_en = button.data('text_en')
-            var text_uz = button.data('text_uz')
-            var text_tr = button.data('text_tr')
-            var text_ar = button.data('text_ar')
-            var position = button.data('position')
+            var image = "/" + button.data('image')
             var modal = $(this)
 
-            modal.find('.modal-body #id').val(id)
-            modal.find('.modal-body #name_ru').val(name_ru)
-            modal.find('.modal-body #name_en').val(name_en)
-            modal.find('.modal-body #name_uz').val(name_uz)
-            modal.find('.modal-body #name_tr').val(name_tr)
-            modal.find('.modal-body #name_ar').val(name_ar)
+            modal.find('.modal-body #id').val(button.data('id'))
+            modal.find('.modal-body #name_ru').val(button.data('name_ru'))
             modal.find('.modal-body #option_eng').text(image)
-            modal.find('.modal-body #image-icon').attr("src", "/img/categories/" + image)
-            modal.find('.modal-body #description_ru').val(description_ru)
-            modal.find('.modal-body #description_en').val(description_en)
-            modal.find('.modal-body #description_uz').val(description_uz)
-            modal.find('.modal-body #description_tr').val(description_tr)
-            modal.find('.modal-body #description_ar').val(description_ar)
-            modal.find('.modal-body #text_ru').val(text_ru)
-            modal.find('.modal-body #text_en').val(text_en)
-            modal.find('.modal-body #text_uz').val(text_uz)
-            modal.find('.modal-body #text_tr').val(text_tr)
-            modal.find('.modal-body #text_ar').val(text_ar)
-            modal.find('.modal-body #position').val(position)
+            modal.find('.modal-body #image-icon').attr("src", image)
+            modal.find('.modal-body #description_ru').val(button.data('description_ru'))
+            modal.find('.modal-body #position').val(button.data('position'))
+            modal.find('.modal-body #is_popular').prop('checked', button.data('is_popular'))
             setTimeout(function () {
                 $('#name').focus();
             }, 500);

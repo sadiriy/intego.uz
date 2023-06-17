@@ -4,16 +4,20 @@ namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
 use App\Models\Order;
+use App\Models\OrderProducts;
 use App\Models\Product;
 use App\Mail\NewOrder;
 use Carbon\Carbon;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
+use function PHPUnit\Framework\isEmpty;
 
 class CartController extends Controller
 {
     public function index(){
+        dd(Hash::make('12345'));
         return view('front/cart');
     }
 
@@ -42,34 +46,40 @@ class CartController extends Controller
     }
 
     public function send(Request $request){
-        $orderDetails = Cart::content()->map(function ($item){
-            return 'ID: '.$item->model->id.', Номенклатура: '.$item->model->name_ru.', Количество: '.$item->qty;
-        })->values()->toJson();
-        $clientName = $request->name;
-        $clientPhone = $request->phone;
-        $date = Carbon::now();
-
-        $order = Order::create([
-            'orderDetails' => $orderDetails,
-            'clientName' => $clientName,
-            'clientPhone' => $clientPhone,
-            'date' => $date,
-            'checked' => 0,
+        if (!$request['name'] || !$request['phone'] || Cart::count() == 0){
+            return redirect('/')->with('error_message', __('Произошла ошибка, повторите еще раз'));
+        }
+        $request['phone'] = correct_phone($request['phone']);
+        $client_info = $request->validate([
+            'name' => 'required|string|min:2',
+            'phone' => 'required|numeric|digits:12',
         ]);
-        
-        //$order->notify(new NewOrderNotification($order));
-        
-        Mail::to('sale1@unioncast.uz')->send(new NewOrder($order));
+
+        $order = new Order();
+        $order->total_sum = (int)Cart::total();
+        $order->client_name = $client_info['name'];
+        $order->client_phone = $client_info['phone'];
+        $order->status = 0;
+        $order->save();
+
+        foreach (Cart::content() as $product){
+            $order_products = new OrderProducts();
+            $order_products->name = $product->model->name_ru;
+            $order_products->slug = $product->model->slug;
+            $order_products->order_id = $order->id;
+            $order_products->price = $product->model->price ?? '';
+            $order_products->amount = $product->qty;
+            $order_products->save();
+        }
+//        Mail::to('sale1@unioncast.uz')->send(new NewOrder($order));
 
         Cart::instance('default')->destroy();
-
         return redirect('/')->with('success_message', __('Ваша заявка принята'));
 
     }
 
     public function clear(){
         Cart::destroy();
-
         return redirect('/')->with('success_message', __('Корзина очищена'));
     }
 }
