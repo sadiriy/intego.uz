@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Parameters;
+use App\Models\Parameter;
 use App\Models\Product;
 use App\Models\Attributes;
 use Illuminate\Http\Request;
@@ -13,61 +13,39 @@ class ParameterController extends Controller
     public function index(Product $product)
     {
         $parameters = $product->parameters()->with('attributes')->get();
-        $attributes = Attributes::where('category_id', $product->category_id)->get();
-
+        $attributes = Attributes::all();
         return view('back/parameters')->with([
             'parameters' => $parameters,
-            'product' => $product,
             'attributes' => $attributes,
         ]);
     }
 
-    public function create()
+    public function store(Request $request)
     {
-        //
-    }
+        $data = $request->validate([
+            'product_id' => 'required|numeric|exists:products,id',
+            'attribute_id' => 'required|numeric|exists:attributes,id',
+            'value' => 'required|string|max:255',
+        ]);
 
-    public function store(Request $request, Product $product)
-    {
-        $id = $request['id'];
-        $product_id = $product->id;
-        $attribute_id = $request['attribute_id'];
-        $value = $request['value'];
+        if (!$request['id']){
+            $parameter = new Parameter();
+            $message = 'Параметр успешно создан.';
 
-        if ($id == null){
-            Parameters::create([
-                'value' => $value,
-                'product_id' => $product_id,
-                'attribute_id' => $attribute_id,
-            ]);
-
-            return redirect()->route('parameters.index', $product)->with('success_message', 'Параметр успешно создан');
         }
         else{
-            Parameters::where('id', $id)->update([
-               'value' => $value,
-               'attribute_id' => $attribute_id,
-            ]);
-
-            return redirect()->route('parameters.index', $product)->with('success_message', 'Параметр успешно изменен');
+            $parameter = Parameter::find($request['id']);
+            $message = 'Параметр успешно изменен.';
         }
+        $parameter->product_id = $data['product_id'];
+        $parameter->attribute_id = $data['attribute_id'];
+        $parameter->value = $data['value'];
+        $parameter->save();
+
+        return redirect()->route('parameters.index', $data['product_id'])->with('success_message', $message);
     }
 
-    public function show($id)
-    {
-        //
-    }
-
-    public function edit($id)
-    {
-        //
-    }
-
-    public function update(Request $request, $id)
-    {
-        //
-    }
-    public function destroy(Product $product, Parameters $parameter)
+    public function destroy(Product $product, Parameter $parameter)
     {
         $parameter->delete();
         return redirect()->route('parameters.index', $product)->with('success_message', 'Параметр успешно удален');

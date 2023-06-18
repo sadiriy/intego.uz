@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
-use App\Models\Parameters;
+use App\Models\Parameter;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -12,7 +12,7 @@ class ProductController extends Controller
 {
     public function index()
     {
-        $categories = Category::all();
+        $categories = (new Category)->getAllCategories();
         $products = Product::orderBy('id', 'DESC')->paginate(15);
 
         return view('back/products')->with([
@@ -24,7 +24,7 @@ class ProductController extends Controller
 
     public function search(Request $request){
         $searchResults = Product::where('name_ru', 'LIKE', "%$request->search%")->get();
-        $categories = Category::all();
+        $categories = (new Category)->getAllCategories();
 
         return view('back/products')->with([
             'showPagination' => 0,
@@ -42,28 +42,13 @@ class ProductController extends Controller
     {
         $id = $request['id'];
         $name_ru = $request['name_ru'];
-        $name_en = $request['name_en'];
-        $name_uz = $request['name_uz'];
-        $name_tr = $request['name_tr'];
-        $name_ar = $request['name_ar'];
         $description_ru = $request['description_ru'];
-        $description_en = $request['description_en'];
-        $description_uz = $request['description_uz'];
-        $description_tr = $request['description_tr'];
-        $description_ar = $request['description_ar'];
         $category_id = $request['category'];
 
         if ($id == null) {
             Product::create([
                 'name_ru' => $name_ru,
-                'name_en' => $name_en,
-                'name_uz' => $name_uz,
-                'name_tr' => $name_tr,
-                'name_ar' => $name_ar,
                 'description_ru' => $description_ru,
-                'description_en' => $description_en,
-                'description_uz' => $description_uz,
-                'description_ar' => $description_ar,
                 'category_id' => $category_id,
             ]);
             return redirect()->route('products.index');
@@ -71,15 +56,7 @@ class ProductController extends Controller
         else{
             Product::where('id', $id)->update([
                 'name_ru' => $name_ru,
-                'name_en' => $name_en,
-                'name_uz' => $name_uz,
-                'name_tr' => $name_tr,
-                'name_ar' => $name_ar,
                 'description_ru' => $description_ru,
-                'description_en' => $description_en,
-                'description_uz' => $description_uz,
-                'description_tr' => $description_tr,
-                'description_ar' => $description_ar,
                 'category_id' => $category_id,
             ]);
             return redirect()->route('products.index');
@@ -120,7 +97,7 @@ class ProductController extends Controller
 
     public function destroy(Product $product)
     {
-        Parameters::where('product_id', $product->id)->delete();
+        Parameter::where('product_id', $product->id)->delete();
         $product->delete();
         return redirect()->route('products.index');
     }

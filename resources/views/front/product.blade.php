@@ -41,10 +41,10 @@
 
                     <div id="characteristics" class="tab">
                         <ul class="properties">
-                            @foreach($product->parameters as $parameters)
+                            @foreach($product->parameters as $parameter)
                                 <li>
-                                    <span class="name"><span>{{ $parameters->attributes->name_ru }}</span></span>
-                                    <span class="value">{{ $parameters->value }}</span>
+                                    <span class="name"><span>{{ $parameter->attributes->name_ru }}</span></span>
+                                    <span class="value">{{ $parameter->value . ' ' . $parameter->attributes->unit_ru }}</span>
                                 </li>
                             @endforeach
                         </ul>

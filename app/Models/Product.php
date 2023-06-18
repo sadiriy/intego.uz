@@ -31,6 +31,6 @@ class Product extends Model
     }
 
     public function parameters(){
-        return $this->hasMany(Parameters::class, 'product_id', 'id');
+        return $this->hasMany(Parameter::class, 'product_id', 'id');
     }
 }

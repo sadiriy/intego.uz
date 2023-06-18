@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 @section('title')
-    Параметры {{ $product->name }}
+    Параметры {{ $parameters->first()->product->name_ru }}
 @stop
 
 @section('content')
@@ -13,13 +13,16 @@
                     <h5 class="modal-title" id="exampleModalLabel" style="font-weight: 700; font-size: 18pt;">Параметр</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
                 </div>
-                <form class="form_style" action="{{ route('parameters.store', $product) }}" method="post"
+                <form class="form_style" action="{{ route('parameters.store', $parameters->first()->product) }}" method="post"
                       enctype="multipart/form-data">
                     @csrf
                     @method('POST')
                     <div class="modal-body" style="text-align: left;">
                         <div class="input-group input-group-sm">
                             <input name="id" id="id" type="hidden" class="form-control">
+                        </div>
+                        <div class="input-group input-group-sm">
+                            <input name="product_id" id="product_id" type="hidden" class="form-control" value="{{ $parameters->first()->product_id }}">
                         </div>
                         <div class="input-group input-group-sm">
                             <label style="margin-bottom: 10px;">Атрибут</label>
@@ -47,7 +50,7 @@
     {{--TABLE--}}
     <div class="container" align="center">
         <div class="starter-template">
-            <h1>Управление параметрами</h1>
+            <h1>{{ $parameters->first()->product->name_ru }}</h1>
             <div class='edit-opr'>
                 <div class='container'>
                     <div class='row'>
@@ -92,7 +95,7 @@
                                        data-attribute="{{ $parameter->attribute_id }}"
                                        class='btn btn-primary'><i class='fa fa-edit'></i>
                                     </a>
-                                    <form method="POST" action="{{ route('parameters.destroy', [$product, $parameter]) }}"
+                                    <form method="POST" action="{{ route('parameters.destroy', ['product' => $parameters->first()->product, 'parameter' => $parameter]) }}"
                                           style="display: inline-block">
                                         @csrf
                                         @method('DELETE')

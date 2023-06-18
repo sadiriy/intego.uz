@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\Parameters;
+use App\Models\Parameter;
 use App\Models\Product;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -29,12 +29,12 @@ class ProductsTableSeeder extends Seeder
             'description_tr' => 'kg',
             'category_id' => 3,
         ]);
-        Parameters::create([
+        Parameter::create([
             'value' =>'20.0',
             'product_id' => $product->id,
             'attribute_id' => 21,
         ]);
-        Parameters::create([
+        Parameter::create([
             'value' =>'Upcast®',
             'product_id' => $product->id,
             'attribute_id' => 22,
@@ -51,12 +51,12 @@ class ProductsTableSeeder extends Seeder
             'description_tr' => 'kg',
             'category_id' => 3,
         ]);
-        Parameters::create([
+        Parameter::create([
             'value' =>'25.0',
             'product_id' => $product->id,
             'attribute_id' => 21,
         ]);
-        Parameters::create([
+        Parameter::create([
             'value' =>'Upcast®',
             'product_id' => $product->id,
             'attribute_id' => 22,
