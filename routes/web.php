@@ -89,9 +89,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('admin/partners', 'App\Http\Controllers\Admin\PartnersController@index')->name('partners.index');
     Route::post('admin/partners/add', 'App\Http\Controllers\Admin\PartnersController@upload')->name('partners.upload');
     Route::delete('admin/partners/delete/{partner}', 'App\Http\Controllers\Admin\PartnersController@delete')->name('partners.delete');
-    Route::get('admin/orders', 'App\Http\Controllers\Admin\OrdersController@index')->name('orders.index');
-    Route::get('admin/orders/{order}/activate', 'App\Http\Controllers\Admin\OrdersController@activate')->name('orders.activate');
-    Route::get('admin/orders/{order}', 'App\Http\Controllers\Admin\SingleOrderController@index')->name('order.index');
+    Route::get('admin/orders', 'App\Http\Controllers\Admin\OrderController@index')->name('orders.index');
+    Route::get('admin/orders/{order}/activate', 'App\Http\Controllers\Admin\OrderController@activate')->name('orders.activate');
+    Route::get('admin/orders/{order}', 'App\Http\Controllers\Admin\OrderProductController@index')->name('order.index');
     Route::get('admin/settings', function (){
         return view('back/settings');
     })->name('settings.index');

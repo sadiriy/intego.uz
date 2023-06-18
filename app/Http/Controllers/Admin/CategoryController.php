@@ -32,19 +32,14 @@ class CategoryController extends Controller
 
         if (!$request['id']) {
             $category = new Category();
-            $category->name_ru = $data['name_ru'];
-            $category->description_ru = $request['description_ru'];
-            $category->image = $imageName ?? '';
-            $category->position = $data['position'];
-            $category->is_popular = (bool)$request['is_popular'];
-            $category->save();
-            return redirect()->route('categories.index');
+        }
+        else{
+            $category = Category::find($request['id']);
         }
 
-        $category = Category::find($request['id']);
         $category->name_ru = $data['name_ru'];
         $category->description_ru = $request['description_ru'];
-        $category->image = $imageName ?? $category->image;
+        $category->image = $imageName ?? $category->image ?? '';
         $category->position = $data['position'];
         $category->is_popular = (bool)$request['is_popular'];
         $category->save();

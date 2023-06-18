@@ -26,8 +26,23 @@
                             <input name="name_ru" id="name_ru" type="text" class="form-control" required>
                         </div>
                         <div class="input-group input-group-sm">
+                            <label style="margin-bottom: 10px;">Модель товара</label>
+                            <input name="slug" id="slug" type="text" class="form-control" required>
+                        </div>
+                        <div class="input-group input-group-sm">
                             <label style="margin-bottom: 10px;">Описание товара RU</label>
-                            <input name="description_ru" id="description_ru" type="text" class="form-control" required>
+                            <textarea name="description_ru" id="description_ru" type="text" class="form-control"></textarea>
+                        </div>
+                        <div class="input-group input-group-sm">
+                            <label for="image" style="margin-bottom: 10px;">Изображение категории</label>
+                            <figure style="width: 100%">
+                                <img width="50px" height="50px" id="image-icon" src="">
+                            </figure>
+                            <input name="image" id="image" type="file" class="form-control"><br>
+                        </div>
+                        <div class="input-group input-group-sm">
+                            <label style="margin-bottom: 10px;">Цена товара</label>
+                            <input name="price" id="price" type="text" class="form-control" required>
                         </div>
                         <div class="input-group input-group-sm">
                             <label style="margin-bottom: 10px;">Категория</label>
@@ -37,6 +52,10 @@
                                     <option value="{{$category->id}}">{{$category->name_ru}}</option>
                                 @endforeach
                             </select>
+                        </div>
+                        <div class="input-group input-group-sm">
+                            <label style="margin-bottom: 10px;">Популярный</label>
+                            <input name="is_popular" id="is_popular" type="checkbox">
                         </div>
                     </div>
                     <div class="modal-footer" style="border: none;">
@@ -73,6 +92,7 @@
                         <thead>
                         <tr>
                             <th scope='col' class='col-1 text-center'>№</th>
+                            <th scope='col' class='col-2 text-center'>Изображение</th>
                             <th scope='col' class='col-2 text-center'>Название</th>
                             <th scope='col' class='col-2 text-center'>Параметры</th>
                             <th scope='col' class='col-2 text-center'>Категория</th>
@@ -84,12 +104,16 @@
                             <tr>
                                 <th scope='row' class='text-center'>{{ $loop->iteration }}</th>
                                 <td class='text-center'>
+                                    <img width="70px" height="auto" alt="{{ $product->name_ru }}"
+                                         src="{{ asset($product->image) }}">
+                                </td>
+                                <td class='text-center'>
                                     {{ $product->name_ru }}
                                 </td>
                                 <td class='text-center'>
-                                        <a title="Изменить параметры" href='{{ route('parameters.index', $product) }}' type="button" class='btn btn-primary'>
-                                            Изменить
-                                        </a>
+                                    <a title="Изменить параметры" href='{{ route('parameters.index', $product) }}' type="button" class='btn btn-primary'>
+                                        Изменить
+                                    </a>
                                 </td>
                                 <td class='text-center'>
                                     {{$product->category->name_ru}}
@@ -100,9 +124,13 @@
                                        data-bs-toggle="modal"
                                        data-bs-target="#exampleModal"
                                        data-id="{{ $product->id }}"
+                                       data-slug="{{ $product->slug }}"
                                        data-name_ru="{{ $product->name_ru }}"
                                        data-description_ru="{{ $product->description_ru }}"
-                                       data-category="{{ $product->category->id }}"
+                                       data-image="{{ $product->image }}"
+                                       data-price="{{ $product->price }}"
+                                       data-category="{{ $product->category_id }}"
+                                       data-is_popular="{{ $product->is_popular }}"
                                        class='btn btn-primary'><i class='fa fa-edit'></i>
                                     </a>
                                     <form method="POST" action="{{ route('products.destroy' , $product) }}"
@@ -133,12 +161,17 @@
     <script>
         $('#exampleModal').on('show.bs.modal', function (event) {
             var button = $(event.relatedTarget)
+            var image = "/" + button.data('image')
             var modal = $(this)
 
             modal.find('.modal-body #id').val(button.data('id'))
+            modal.find('.modal-body #slug').val(button.data('slug'))
             modal.find('.modal-body #name_ru').val(button.data('name_ru'))
             modal.find('.modal-body #description_ru').val(button.data('description_ru'))
+            modal.find('.modal-body #image-icon').attr("src", image)
+            modal.find('.modal-body #price').val(button.data('price'))
             modal.find('.modal-body #category').val(button.data('category'))
+            modal.find('.modal-body #is_popular').prop('checked', button.data('is_popular'))
             setTimeout(function () {
                 $('#name').focus();
             }, 500);

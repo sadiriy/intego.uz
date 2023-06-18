@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 @section('title')
-    Параметры {{ $parameters->first()->product->name_ru }}
+    Параметры {{ $product->name_ru }}
 @stop
 
 @section('content')
@@ -13,7 +13,7 @@
                     <h5 class="modal-title" id="exampleModalLabel" style="font-weight: 700; font-size: 18pt;">Параметр</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
                 </div>
-                <form class="form_style" action="{{ route('parameters.store', $parameters->first()->product) }}" method="post"
+                <form class="form_style" action="{{ route('parameters.store', $product) }}" method="post"
                       enctype="multipart/form-data">
                     @csrf
                     @method('POST')
@@ -22,7 +22,7 @@
                             <input name="id" id="id" type="hidden" class="form-control">
                         </div>
                         <div class="input-group input-group-sm">
-                            <input name="product_id" id="product_id" type="hidden" class="form-control" value="{{ $parameters->first()->product_id }}">
+                            <input name="product_id" id="product_id" type="hidden" class="form-control" value="{{ $product->id }}">
                         </div>
                         <div class="input-group input-group-sm">
                             <label style="margin-bottom: 10px;">Атрибут</label>
@@ -50,7 +50,7 @@
     {{--TABLE--}}
     <div class="container" align="center">
         <div class="starter-template">
-            <h1>{{ $parameters->first()->product->name_ru }}</h1>
+            <h1>{{ $product->name_ru }}</h1>
             <div class='edit-opr'>
                 <div class='container'>
                     <div class='row'>

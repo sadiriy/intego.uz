@@ -36,19 +36,19 @@
                                     {{ $order->id }}
                                 </td>
                                 <td class='text-center'>
-                                    {{ $order->clientName }}
+                                    {{ $order->client_name }}
                                 </td>
                                 <td class='text-center'>
-                                    {{ $order->clientPhone }}
+                                    <a href="tel:+{{ $order->client_phone }}">+{{ $order->client_phone }}</a>
                                 </td>
                                 <td class='text-center'>
-                                    {{$order->date}}
+                                    {{$order->created_at}}
                                 </td>
                                 <td class='text-center'>
                                     <a href="{{ route('orders.activate', $order) }}">
-                                        @if ($order->checked == 1)
+                                        @if ($order->status == 1)
                                             <i style="font-size: 25pt; color: green;" class="fas fa-toggle-on"></i>
-                                        @elseif ($order->checked == 0)
+                                        @elseif ($order->status == 0)
                                             <i style="font-size: 25pt; color: grey;" class="fas fa-toggle-off"></i>
                                         @else
                                             <p style="color: red;">Err:404</p>
@@ -57,7 +57,7 @@
                                 </td>
                                 <td class="text-center">
                                     <a title="Открыть заказ" href='{{ route('order.index', $order) }}' type="button" class='btn btn-primary'>
-                                        <i class='fa fa-edit'></i>
+                                        <i class='fa fa-arrow-right'></i>
                                     </a>
                                 </td>
                             </tr>

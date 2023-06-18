@@ -15,6 +15,7 @@ class ParameterController extends Controller
         $parameters = $product->parameters()->with('attributes')->get();
         $attributes = Attributes::all();
         return view('back/parameters')->with([
+            'product' => $product,
             'parameters' => $parameters,
             'attributes' => $attributes,
         ]);

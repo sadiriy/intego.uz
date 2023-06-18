@@ -33,65 +33,55 @@ class ProductController extends Controller
         ]);
     }
 
-    public function create()
-    {
-        //
-    }
-
     public function store(Request $request)
     {
-        $id = $request['id'];
-        $name_ru = $request['name_ru'];
-        $description_ru = $request['description_ru'];
-        $category_id = $request['category'];
+        $data = $request->validate([
+            'id' => 'numeric|exists:products,id',
+            'slug' => 'required|string|min:5|max:255',
+            'name_ru' => 'required|string|min:5|max:255',
+            'description_ru' => 'nullable|string|min:3|max:255',
+            'image' => 'mimes:jpg,png',
+            'price' => 'required',
+            'category' => 'required|numeric|exists:categories,id',
+        ]);
 
-        if ($id == null) {
-            Product::create([
-                'name_ru' => $name_ru,
-                'description_ru' => $description_ru,
-                'category_id' => $category_id,
-            ]);
-            return redirect()->route('products.index');
-        }//I know there shouldn't be 'else', but I like it this way.
-        else{
-            Product::where('id', $id)->update([
-                'name_ru' => $name_ru,
-                'description_ru' => $description_ru,
-                'category_id' => $category_id,
-            ]);
-            return redirect()->route('products.index');
+        if ($request['image']){
+            $imageName = 'img/products/' . time() . '.' . $request['image']->extension();
+            $request['image']->move(public_path('img/products/'), $imageName);
         }
-    }
 
-    public function show($id)
-    {
-        //
-    }
+        if (!$request['id']) {
+            $product = new Product();
+            $message = 'Товар успешно создан.';
+        }
+        else{
+            $product = Product::find($request['id']);
+            $message = 'Товар успешно изменен.';
+        }
+        $product->slug = $data['slug'];
+        $product->name_ru = $data['name_ru'];
+        $product->description_ru = $data['description_ru'];
+        $product->image = $imageName ?? $product->image ?? '';
+        $product->price = $data['price'];
+        $product->category_id = $data['category'];
+        $product->is_popular = (bool)$request['is_popular'];
+        $product->save();
+        return redirect()->route('products.index')->with('success_message', $message);
 
-    public function edit($id)
-    {
-        //
-    }
-
-    public function update(Request $request, $id)
-    {
-        //
     }
 
     public function duplicate(Product $product){
-        Product::create([
-            'name_ru' => $product->name_ru,
-            'name_en' => $product->name_en,
-            'name_uz' => $product->name_uz,
-            'name_tr' => $product->name_tr,
-            'name_ar' => $product->name_ar,
-            'description_ru' => $product->description_ru,
-            'description_en' => $product->description_en,
-            'description_uz' => $product->description_uz,
-            'description_tr' => $product->description_tr,
-            'description_ar' => $product->description_ar,
-            'category_id' => $product->category_id,
-        ]);
+        if ($product){
+            $dup_product = new Product();
+            $dup_product->slug = $product->slug . '_copy';
+            $dup_product->name_ru = $product->name_ru . ' копия';
+            $dup_product->description_ru = $product->description_ru;
+            $dup_product->image = $product->image;
+            $dup_product->price = $product->price;
+            $dup_product->category_id = $product->category_id;
+            $dup_product->is_popular = $product->is_popular;
+            $dup_product->save();
+        }
         return redirect()->route('products.index', $product);
     }
 

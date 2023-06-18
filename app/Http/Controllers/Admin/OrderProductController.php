@@ -6,14 +6,13 @@ use App\Http\Controllers\Controller;
 use App\Models\Order;
 use Illuminate\Http\Request;
 
-class SingleOrderController extends Controller
+class OrderProductController extends Controller
 {
     public function index(Order $order){
-        $orderDetails = json_decode($order->orderDetails);
+        $order_products = $order->getOrderProducts($order->id);
 
         return view('back/order')->with([
-            'order_details' => $orderDetails,
-            'order' => $order,
+            'order_products' => $order_products,
         ]);
     }
 }
