@@ -50,14 +50,7 @@ class ProductController extends Controller
             $request['image']->move(public_path('img/products/'), $imageName);
         }
 
-        if (!$request['id']) {
-            $product = new Product();
-            $message = 'Товар успешно создан.';
-        }
-        else{
-            $product = Product::find($request['id']);
-            $message = 'Товар успешно изменен.';
-        }
+        $product = $request['id'] ? Product::find($request['id']) : new Product();
         $product->slug = $data['slug'];
         $product->name_ru = $data['name_ru'];
         $product->description_ru = $data['description_ru'];
@@ -66,7 +59,7 @@ class ProductController extends Controller
         $product->category_id = $data['category'];
         $product->is_popular = (bool)$request['is_popular'];
         $product->save();
-        return redirect()->route('products.index')->with('success_message', $message);
+        return redirect()->route('products.index')->with('success_message', $request['id'] ? 'Товар успешно изменен.' : 'Товар успешно создан.');
 
     }
 

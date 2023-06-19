@@ -29,21 +29,14 @@ class ParameterController extends Controller
             'value' => 'required|string|max:255',
         ]);
 
-        if (!$request['id']){
-            $parameter = new Parameter();
-            $message = 'Параметр успешно создан.';
+        $parameter = $request['id'] ? Parameter::find($request['id']) : new Parameter();
 
-        }
-        else{
-            $parameter = Parameter::find($request['id']);
-            $message = 'Параметр успешно изменен.';
-        }
         $parameter->product_id = $data['product_id'];
         $parameter->attribute_id = $data['attribute_id'];
         $parameter->value = $data['value'];
         $parameter->save();
 
-        return redirect()->route('parameters.index', $data['product_id'])->with('success_message', $message);
+        return redirect()->route('parameters.index', $data['product_id'])->with('success_message', $request['id'] ? 'Параметр успешно изменен.' : 'Параметр успешно создан.');
     }
 
     public function destroy(Product $product, Parameter $parameter)

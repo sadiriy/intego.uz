@@ -27,19 +27,12 @@ class AttributeController extends Controller
         $name = $data['name_ru'];
         $unit = $data['unit_ru'];
 
-        if (!$request['id']){
-            $attribute = new Attributes();
-            $message = 'Атрибут успешно создан.';
-        }
-        else{
-            $attribute = Attributes::find($request['id']);
-            $message = 'Атрибут успешно изменен.';
-        }
+        $attribute = $request['id'] ? Attributes::find($request['id']) : new Attributes();
         $attribute->name_ru = $name;
         $attribute->unit_ru = $unit;
         $attribute->save();
 
-        return redirect()->route('attributes.index')->with('success_message', $message);
+        return redirect()->route('attributes.index')->with('success_message', $request['id'] ? 'Атрибут успешно изменен.' : 'Атрибут успешно создан.');
     }
 
     public function destroy(Attributes $attribute)

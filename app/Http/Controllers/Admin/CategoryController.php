@@ -29,13 +29,7 @@ class CategoryController extends Controller
             $imageName = 'img/categories/' . time() . '.' . $request['image']->extension();
             $request['image']->move(public_path('img/categories/'), $imageName);
         }
-
-        if (!$request['id']) {
-            $category = new Category();
-        }
-        else{
-            $category = Category::find($request['id']);
-        }
+        $category = $request['id'] ? Category::find($request['id']) : new Category();
 
         $category->name_ru = $data['name_ru'];
         $category->description_ru = $request['description_ru'];

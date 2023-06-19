@@ -86,7 +86,7 @@
                         <div class="popular-category-container">
                             <p class="popular-category-name">{{ $category->name_ru }}</p>
                             <button class="popular-category-button">Подробнее</button>
-                            <img src="{{ asset($category->image) }}" alt="{{ $category->name_ru }}" width="250">
+                            <img src="{{ asset($category->image) }}" alt="{{ $category->name_ru }}">
                         </div>
                     </a>
                 </div>
