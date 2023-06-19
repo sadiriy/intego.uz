@@ -71,3 +71,17 @@
 .form-buttons > button{
     margin-top: 10px;
 }
+
+
+/*Form checkout*/
+.input-group{
+    margin-bottom: 10px;
+}
+
+.input-group > label{
+    width: 100%;
+}
+.input-group > .form-control{
+    padding: 10px;
+    font-size: 11pt;
+}

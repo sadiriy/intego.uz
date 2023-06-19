@@ -73,24 +73,24 @@
                 <a id="active-branches" class="list-group-item list-group-item-action list-group-item-light p-3"
                    href=" {{ route('attributes.index') }} "><i class="fa-solid fa-ruler-horizontal fa-fw"></i>
                     <p>Атрибуты</p></a>
-                <a id="active-branches" class="list-group-item list-group-item-action list-group-item-light p-3"
-                   href=" {{ route('partners.index') }} "><i class="fa-solid fa-handshake"></i>
-                    <p>Партнеры</p></a>
-                <a id="active-branches" class="list-group-item list-group-item-action list-group-item-light p-3"
-                   href=" {{ route('certificates.admin') }} "><i class="fa-solid fa-certificate"></i>
-                    <p>Сертификаты</p></a>
-                <a id="active-branches" class="list-group-item list-group-item-action list-group-item-light p-3"
-                   href=" {{ route('overviews.admin') }} "><i class="fa-solid fa-star"></i>
-                    <p>Отзывы</p></a>
+{{--                <a id="active-branches" class="list-group-item list-group-item-action list-group-item-light p-3"--}}
+{{--                   href=" {{ route('partners.index') }} "><i class="fa-solid fa-handshake"></i>--}}
+{{--                    <p>Партнеры</p></a>--}}
+{{--                <a id="active-branches" class="list-group-item list-group-item-action list-group-item-light p-3"--}}
+{{--                   href=" {{ route('certificates.admin') }} "><i class="fa-solid fa-certificate"></i>--}}
+{{--                    <p>Сертификаты</p></a>--}}
+{{--                <a id="active-branches" class="list-group-item list-group-item-action list-group-item-light p-3"--}}
+{{--                   href=" {{ route('overviews.admin') }} "><i class="fa-solid fa-star"></i>--}}
+{{--                    <p>Отзывы</p></a>--}}
                 <a class="list-group-item list-group-item-action list-group-item-light p-3"
                href="{{ route('orders.index') }}"><i class="fa-solid fa-bell fa-fw"></i>
                 <p>Заказы</p></a>
-                <a class="list-group-item list-group-item-action list-group-item-light p-3"
-               href="{{ route('priceListRequests.index') }}"><i class="fa-solid fa-money-check-dollar fa-fw"></i>
-                <p>Прайс-лист</p></a>
-                <a class="list-group-item list-group-item-action list-group-item-light p-3"
-               href="{{ route('calculations.index') }}"><i class="fa-solid fa-calculator fa-fw"></i>
-                <p>Расчет</p></a>
+{{--                <a class="list-group-item list-group-item-action list-group-item-light p-3"--}}
+{{--               href="{{ route('priceListRequests.index') }}"><i class="fa-solid fa-money-check-dollar fa-fw"></i>--}}
+{{--                <p>Прайс-лист</p></a>--}}
+{{--                <a class="list-group-item list-group-item-action list-group-item-light p-3"--}}
+{{--               href="{{ route('calculations.index') }}"><i class="fa-solid fa-calculator fa-fw"></i>--}}
+{{--                <p>Расчет</p></a>--}}
                 <a class="list-group-item list-group-item-action list-group-item-light p-3"
                href="{{ route('settings.index') }}"><i class="fa-solid fa-gears fa-fw"></i>
                 <p>Настройки</p></a>
@@ -141,8 +141,8 @@
 <!-- Footer -->
 <footer class="text-center text-lg-start bg-light text-muted">
     <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
-        © 2022 Copyright:
-        <a class="text-reset fw-bold" target="_blank" href="https://e-95.uz">E-95 | Marketing Agency</a>
+        © 2023 Copyright:
+        <a class="text-reset fw-bold" target="_blank" href="https://www.linkedin.com/in/sadiriy/">Sardor Sadiriy</a>
     </div>
 </footer>
 <!-- End Footer -->

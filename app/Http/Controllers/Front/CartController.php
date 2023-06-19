@@ -17,7 +17,6 @@ use function PHPUnit\Framework\isEmpty;
 class CartController extends Controller
 {
     public function index(){
-        dd(Hash::make('12345'));
         return view('front/cart');
     }
 
@@ -71,7 +70,7 @@ class CartController extends Controller
             $order_products->amount = $product->qty;
             $order_products->save();
         }
-//        Mail::to('sale1@unioncast.uz')->send(new NewOrder($order));
+//        Mail::to('sardorsadiriy@gmail.com')->send(new NewOrder($order));
 
         Cart::instance('default')->destroy();
         return redirect('/')->with('success_message', __('Ваша заявка принята'));
