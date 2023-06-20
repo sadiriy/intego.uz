@@ -49,7 +49,7 @@
                             @endforeach
                         </ul>
                     </div>
-                    <div id="description" class="tab" style="display: none">
+                    <div id="description" class="tab" style="display: none; margin-bottom: 30px">
                         {{ $product->description_ru ?? 'Описание товара отсутствует.' }}
                     </div>
                 </div>
@@ -59,7 +59,7 @@
         <div class="recommended-products row">
             <h2>Рекомендуем посмотреть</h2>
             @foreach($recommended_products as $product)
-                <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+                <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
                     <div class="product-container">
                         <div class="product-image">
                             <a href="{{ route('front.product.index', $product) }}" class="product-image-wrapper">

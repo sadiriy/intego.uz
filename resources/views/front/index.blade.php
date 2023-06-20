@@ -51,7 +51,7 @@
             <h2>{{__('Популярные товары') }}</h2>
             <div class="row">
                 @foreach($products as $product)
-                <div class="col-md-4">
+                <div class="col-md-4 col-sm-6 col-xs-6">
                     <div class="popular-product-container">
                         <a href="{{ route('front.product.index', $product) }}">
                             <div class="popular-product-image" style="background-image: url({{ asset($product->image) }})"></div>
@@ -69,19 +69,12 @@
         </div>
     </section>
 
-{{--    <div class="category-bottom">--}}
-{{--        <a href="/" class="btn btn-primary"--}}
-{{--           data-bs-toggle="modal"--}}
-{{--           data-bs-target="#exampleModal"--}}
-{{--        ><i class="fas fa-list"></i>&nbsp;{{__('Запросить прайс-лист') }}</a>--}}
-{{--    </div>--}}
-
     <section class="popular-categories">
         <div class="container">
             <h2>{{__('Популярные категории') }}</h2>
             <div class="row">
                 @foreach($main_categories as $category)
-                <div class="col-md-4">
+                <div class="col-md-4 col-sm-6 col-xs-6">
                     <a href="{{ route('front.category.index', $category) }}">
                         <div class="popular-category-container">
                             <p class="popular-category-name">{{ $category->name_ru }}</p>
@@ -94,81 +87,6 @@
             </div>
         </div>
     </section>
-{{--    <section class="services">--}}
-{{--        <div class="container">--}}
-{{--            <h2 class="title text-center">{{__('Преимущества работы с нами') }}</h2>--}}
-{{--            <div class="row text-center">--}}
-{{--                @foreach($privileges as $privilege)--}}
-{{--                <div data-aos="fade-up" class="col-md-2 col-sm-12 col-xs-12 service">--}}
-{{--                    <img src="/img{{ $privilege->icon }}" class="service-img" alt="FIRST" />--}}
-{{--                    <h6 class="title text-center">--}}
-{{--                        {{ $privilege->{'text_'.app()->getLocale()} }}--}}
-{{--                    </h6>--}}
-{{--                </div>--}}
-{{--                @endforeach--}}
-
-{{--            </div>--}}
-{{--        </div>--}}
-{{--    </section>--}}
-
-{{--    <section class="forms">--}}
-
-{{--        <div class="row">--}}
-
-{{--            <div class="forms-container col-12 col-xl-5">--}}
-{{--                <h2 class="title">--}}
-{{--                    {{ __('Получить расчёт стоимости') }}--}}
-{{--                </h2>--}}
-{{--                <p class="forms-text">--}}
-{{--                    {{ __('Оставьте заявку, и мы с вами свяжемся') }}--}}
-{{--                </p>--}}
-{{--            </div>--}}
-{{--            <div class="col-12 col-xl-6 form">--}}
-{{--                <form action="{{ route('index.calculation') }}" method="POST" enctype="multipart/form-data">--}}
-{{--                    @csrf--}}
-{{--                    @method('POST')--}}
-{{--                    <div class="div-container calculation-form">--}}
-{{--                        <div class="form-container">--}}
-{{--                            <div class="form-floating form-calc">--}}
-{{--                                <input type="text" id="name" name="name" placeholder="{{ __('Ваше имя') }}*" required>--}}
-{{--                            </div>--}}
-{{--                            <div class="form-floating form-calc">--}}
-{{--                                <input type="text" id="message" name="message" placeholder="{{ __('Ваше сообщение') }}" required>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                        <div class="form-container">--}}
-{{--                            <div class="form-floating form-calc">--}}
-{{--                                <input type="text" id="phone" name="phone" placeholder="{{ __('Номер телефона') }}*" required>--}}
-{{--                            </div>--}}
-{{--                            <div class="form-calc" style="display: flex; flex-direction: column;">--}}
-{{--                                <input type="file" id="file" name="download uploaded_file" style="padding: 0" class="download" />--}}
-{{--                                <label for="file">{{ __('Выбрать файл') }}</label>--}}
-{{--                                --}}{{--                            <button class="download"> {{ __('Загрузить файл') }}</button>--}}
-{{--                                <div class="form-calc">--}}
-{{--                                    <button class="send">{{ __('Отправить') }}</button>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-
-{{--                    </div>--}}
-{{--                </form>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-
-{{--    </section>--}}
-
-{{--    @if(! $partners->isEmpty())--}}
-{{--    <section class="partners">--}}
-{{--        <h2>{{ __('Нам доверяют') }}</h2>--}}
-{{--        <div class="partnercarousel">--}}
-{{--            @foreach($partners as $partner)--}}
-{{--            <div class="partner">--}}
-{{--                <img src="{{ asset($partner->url) }}">--}}
-{{--            </div>--}}
-{{--            @endforeach--}}
-{{--        </div>--}}
-{{--    </section>--}}
-{{--    @endif--}}
 
     <script>
         var inputs = document.querySelectorAll( '.download' );

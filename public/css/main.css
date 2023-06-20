@@ -204,6 +204,9 @@ i {
     display: flex;
     flex-direction: row;
 }
+.top-bar-info > .burger-menu{
+    display: none;
+}
 .top-bar-info > #cart-container{
     display: flex;
     align-items: center;
@@ -322,10 +325,137 @@ footer {
 }
 
 @media (max-width: 1200px) {
-    .popular-category-container > img{
+    h2 {
+        font-size: 25px;
+        margin-bottom: 20px;
+    }
+
+    .container {
+        max-width: 950px;
+    }
+
+    .top-bar {
+        padding: 5px 0;
+    }
+
+    .contact-link > a {
+        font-size: 20px;
+    }
+
+    #logo-img {
+        width: 180px;
+    }
+
+    .navbar {
+        height: 45px;
+    }
+
+    .navbar-nav > .nav-item > .nav-link {
+        font-size: 13px;
+    }
+
+    .popular-product-name {
+        height: unset;
+    }
+
+    .popular-category-container {
+        height: 350px;
+    }
+
+    .popular-category-container > img {
         width: 200px;
     }
-    .contact-link > a {
 
+    .popular-category-name {
+        margin-bottom: 15px;
+        font-size: 18px;
+    }
+
+    .popular-category-button {
+        font-size: 12px;
+        width: 100px;
+        height: 28px;
+    }
+
+    .footer-copyrights > span {
+        font-size: 14px;
     }
 }
+    @media (max-width: 991px) {
+        .top-bar-info{
+            justify-content: space-between;
+        }
+        .top-bar-info > .burger-menu{
+            display: block;
+        }
+        .top-bar-info > .col-md-7{
+            display: none;
+        }
+        .navbar{
+            height: 0;
+        }
+        button.navbar-toggler{
+            margin-top: -50px;
+        }
+        .navbar-collapse{
+            background-color: #13293d;
+            z-index: 1;
+        }
+        .popular-products{
+            padding: 30px 0;
+        }
+        .container{
+            padding: 0 20px;
+        }
+
+    }
+    @media (max-width: 767px) {
+        h2{
+            font-size: 20px;
+        }
+        .top-bar-info{
+            justify-content: space-between;
+        }
+        .top-bar > .container .row>*{
+            width: unset;
+        }
+        .top-bar-info > .col-sm-6{
+            text-align: center;
+        }
+        .navbar-toggler{
+            padding: 2px 7px;
+        }
+        #logo-img{
+            width: 150px;
+        }
+        #cart-container > a{
+            padding: 0;
+        }
+        #cart-container {
+            padding: 0;
+        }
+        .top-bar > .container .row{
+            margin-right: 0;
+        }
+        .top-bar-info > .burger-menu{
+            width: 50px !important;
+        }
+        .dropdown-menu > a{
+            display: flex;
+        }
+        .dropdown-menu > a > img{
+            width: 35%;
+        }
+        .dropdown-item{
+            width: 50%;
+        }
+        .popular-products{
+            padding: 15px 0;
+        }
+        .popular-products > .container > .row>*{
+            width: 50%;
+        }
+        .popular-product-image{
+            height: 150px;
+        }
+    }

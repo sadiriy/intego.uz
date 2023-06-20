@@ -51,7 +51,8 @@
 <div class="top-bar">
     <div class="container">
         <div class="top-bar-info row">
-            <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="col-md-2 col-sm-3 col-xs-3 burger-menu"></div>
+            <div class="col-md-3 col-sm-6 col-xs-6">
                 <a class="navbar-brand" href="/"><img id='logo-img' src="{{ asset($settings->logo) }}" alt="unioncast"></a>
             </div>
 {{--            @if(count(config('app.languages')) > 1)--}}
@@ -69,7 +70,7 @@
 {{--                    </div>--}}
 {{--                </li>--}}
 {{--            @endif--}}
-            <div class="col-md-6 col-sm-6 col-xs-12">
+            <div class="col-md-7 col-sm-6 col-xs-12">
                 <ul class="contact-info">
                     <li class="contact-link">
                         <span class="contact-header-span">Отдел оптовых продаж</span>
@@ -81,7 +82,7 @@
                     </li>
                 </ul>
             </div>
-            <div class="col-md-3 col-sm-6 col-xs-12" id="cart-container">
+            <div class="col-md-2 col-sm-3 col-xs-3" id="cart-container">
                     <span class="header-cart-count">{{ Cart::instance('default')->count() }}</span>
                     <a class="nav-link" href="{{ route('cart.index') }}"><i class="fa-solid fa-cart-shopping" style="color: #000"></i></a>
             </div>
@@ -123,15 +124,6 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">{{ __('Где купить') }}</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">{{ __('Вакансии') }}</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">{{ __('Поддержка') }}</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">{{ __('Новости') }}</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">{{ __('Контакты') }}</a>

@@ -15,9 +15,6 @@
     font-size: 14pt;
     line-height: 30px;
 }
-.cart-table{
-    padding-right: 30px;
-}
 .table>:not(:first-child), .products-table > tbody{
     border-top: 1px;
 }
@@ -84,4 +81,26 @@
 .input-group > .form-control{
     padding: 10px;
     font-size: 11pt;
+}
+
+@media (max-width: 767px) {
+    .cart-container > h1{
+        margin-left: 10px;
+    }
+    .products-table{
+        overflow-x: auto;
+        white-space: nowrap;
+        display: block;
+    }
+    .summary-box{
+        flex-direction: column;
+    }
+    .cart-section{
+        max-width: 100%;
+        padding: 0 8px;
+        margin: 0;
+    }
+    .cart-table{
+        padding: 0;
+    }
 }

@@ -26,7 +26,7 @@
                 <div class="product-grid row">
 
                     @foreach($products as $product)
-                        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                        <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
                             <div class="product-container">
                                 <div class="product-image">
                                     <a href="{{ route('front.product.index', $product) }}" class="product-image-wrapper">
