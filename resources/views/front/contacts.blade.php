@@ -3,7 +3,7 @@
     {{ __("Контакты") }}
 @stop
 @section('seo')
-    <meta name="description" content=">{{ $contacts->first()->seo }}">
+    <meta name="description" content="">
 @endsection
 @section('style-link')
     <link rel="stylesheet" type="text/css" href="{{ asset('css/pages.css') }}" />
@@ -12,18 +12,28 @@
 @section('content')
     <div class="page-container contacts" style="display: flex; flex-wrap: wrap;">
         <section class="company-info">
-            @foreach($contacts as $contact)
+{{--            @foreach($contacts as $contact)--}}
             <div class="contact-card">
                 <div class="contact-text">
-                    <div class="position">{{ $contact->{'position_'.app()->getLocale()} }}</div>
-                    <div class="name">{{ $contact->{'name_'.app()->getLocale()} }}</div>
-                    <div class="phone-number">{{ $contact->phone }}</div>
+                    <div class="position">CEO Intego Corp.</div>
+                    <div class="name">Майкл Браун</div>
+                    <div class="phone-number">+998 99 876-54-32</div>
                 </div>
                 <div class="contact-image">
-                    <img src="{{ asset($contact->image) }}" alt="">
+                    <img src="#" alt="">
                 </div>
             </div>
-            @endforeach
+            <div class="contact-card">
+                <div class="contact-text">
+                    <div class="position">CMO Intego Corp.</div>
+                    <div class="name">Ник Питерсон</div>
+                    <div class="phone-number">+998 99 765-23-12</div>
+                </div>
+                <div class="contact-image">
+                    <img src="#" alt="">
+                </div>
+            </div>
+{{--            @endforeach--}}
         </section>
         <section class="map">
             <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Ac8086eb3df35c18564ce335e066f14d97abc64d60f1fe2b7816228a291aa1a18&amp;width=100%&amp;height=400&amp;lang=ru_RU&amp;scroll=true"></script>
@@ -32,7 +42,7 @@
             <h3>{{ __('Наши адреса') }}</h3>
 
             <p id="requisites-text" onclick="copyText()">
-                {!!  $requisites->{'text_'.app()->getLocale()}  !!}
+{{--                {!!  $requisites->{'text_'.app()->getLocale()}  !!}--}}
             </p>
 
         </section>

@@ -88,13 +88,6 @@
             </div>
 
         </div>
-{{--        <div class="lme-rate">--}}
-{{--            <a target="_blank" href="{{ $settings->li_link }}"><i class="fa-brands fa-linkedin"></i></a>--}}
-{{--            <a target="_blank" href="{{ $settings->fb_link }}"><i class="fa-brands fa-facebook"></i></a>--}}
-{{--            <a target="_blank" href="{{ $settings->tg_link }}"><i class="fa-brands fa-telegram"></i></a>--}}
-{{--            <a target="_blank" href="{{ $settings->wa_link }}"><i class="fa-brands fa-whatsapp"></i></a>--}}
-{{--        </div>--}}
-{{--        @yield('lme-course')--}}
     </div>
 </div>
 <nav class="navbar navbar-expand-lg navbar-light">
@@ -104,31 +97,28 @@
         </button>
         <div class="collapse navbar-collapse menu-items" id="navbarNavAltMarkup">
             <ul class="navbar-nav mb-2 mb-lg-0">
-{{--                @foreach($pages as $page)--}}
-                <!-- Dropdown -->
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-                            {{ __('Продукция') }}
-                        </a>
-                        <div class="dropdown-menu">
-                            @foreach($categories as $category)
-                                <a class="dropdown-item" href="{{ route('front.category.index', $category) }}">
-                                    <img src="/{{ $category->image }}" alt="{{ $category->name_ru }}">
-                                    <span>{{ $category->name_ru }}</span>
-                                </a>
-                            @endforeach
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">{{ __('О компании') }}</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">{{ __('Где купить') }}</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">{{ __('Контакты') }}</a>
-                    </li>
-{{--                @endforeach--}}
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                        {{ __('Продукция') }}
+                    </a>
+                    <div class="dropdown-menu">
+                        @foreach($categories as $category)
+                            <a class="dropdown-item" href="{{ route('front.category.index', $category) }}">
+                                <img src="/{{ $category->image }}" alt="{{ $category->name_ru }}">
+                                <span>{{ $category->name_ru }}</span>
+                            </a>
+                        @endforeach
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('about') }}">{{ __('О компании') }}</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">{{ __('Где купить') }}</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('contacts') }}">{{ __('Контакты') }}</a>
+                </li>
             </ul>
         </div>
     </div>

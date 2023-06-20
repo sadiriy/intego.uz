@@ -5,9 +5,12 @@ namespace App\Http\Controllers\Front;
 use App\Http\Controllers\Controller;
 use App\Models\Calculation;
 use App\Models\Category;
+use App\Models\Contacts;
 use App\Models\MainPageSliders;
+use App\Models\Pages;
 use App\Models\PriceList;
 use App\Models\Product;
+use App\Models\Requisites;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -23,46 +26,22 @@ class MainPageController extends Controller
         ]);
     }
 
-    public function priceList(Request $request){
-        $name = $request['name'];
-        $phone = $request['phone'];
-        $category = $request['category'];
-        $date = Carbon::now();
+    public function about(){
+//        $about = Pages::where('name', 'about')->get();
 
-        PriceList::create([
-            'name' => $name,
-            'phone' => $phone,
-            'category_id' => $category,
-            'date' => $date,
-            'is_checked' => 0,
-
-        ]);
-
-        return redirect('/')->with('success_message',  __('Ваша заявка принята'));
+        return view('front/about');
+//            ->with([
+//            'about' => $about,
+//        ]);
     }
+    public function contacts(){
+//        $contacts = Contacts::all();
+//        $requisites = Requisites::FirstOrFail();
 
-    public function calculation(Request $request){
-        $name = $request['name'];
-        $phone = $request['phone'];
-        $message = $request['message'];
-        $file = $request['uploaded_file'];
-        $fileName = '';
-        $date = Carbon::now();
-
-        if ($file != null){
-            $fileName = time() . '.' . $file->extension();
-            $file->move(public_path('uploads/'), $fileName);
-        }
-
-        Calculation::create([
-            'name' => $name,
-            'phone' => $phone,
-            'message' => $message,
-            'file' => 'uploads/'.$fileName,
-            'date' => $date,
-            'is_checked' => 0
-        ]);
-
-        return redirect('/')->with('success_message',  __('Ваша заявка принята'));
+        return view('front/contacts');
+//            ->with([
+//            'contacts' => $contacts,
+//            'requisites' => $requisites
+//        ]);
     }
 }

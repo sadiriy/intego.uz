@@ -26,9 +26,8 @@ Route::group(['namespace' => 'App\Http\Controllers\Front'], function () {
     Route::get('/', 'MainPageController@index');
     Route::get('/category/{category}', 'CategoryController@index')->name('front.category.index');
     Route::get('/product/{product}', 'ProductController@index')->name('front.product.index');
-    // should change
-    //Route::get('/about-us', 'App\Http\Controllers\Admin\PageController@about')->name('about');
-    //Route::get('/contacts', 'App\Http\Controllers\Admin\PageController@contacts')->name('contacts');
+    Route::get('/about-us', 'MainPageController@about')->name('about');
+    Route::get('/contacts', 'MainPageController@contacts')->name('contacts');
 
     Route::group(['prefix' => 'cart'], function () {
         Route::get('/', 'CartController@index')->name('cart.index');

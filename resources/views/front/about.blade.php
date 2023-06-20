@@ -3,21 +3,22 @@
     {{ __('О нас') }}
 @stop
 @section('seo')
-    <meta name="description" content=">{{ $about->first()->seo }}">
+    <meta name="description" content="">
 @endsection
 @section('style-link')
     <link rel="stylesheet" type="text/css" href="{{ asset('css/pages.css') }}" />
 @stop
 
 @section('content')
-<div class="page-container">
-    {!! $about->first()->{'text_'.app()->getLocale()} !!}
-
-    @if($about->first()->{'btn_url_'.app()->getLocale()} != null && $about->first()->{'btn_text_'.app()->getLocale()} != null)
-    <div class="about-bottom">
-        <a target="_blank" href="{{ $about->first()->{'btn_url_'.app()->getLocale()} }}" class="btn btn-primary btn-about-page">{{ $about->first()->{'btn_text_'.app()->getLocale()} }}</a>
+<div class="page-container container">
+    <div class="img-container">
+        <img src="{{ asset('img/about-us.jpg') }}" alt="">
     </div>
-    @endif
+    <p id="main-content">
+        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+        <br><br>
+        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+    </p>
 </div>
 
 @endsection
