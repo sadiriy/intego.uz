@@ -18,8 +18,6 @@
 
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/fonts/Noah/import.css') }}">
 
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}">
-
     <link rel="stylesheet" type="text/css" href="{{ asset('css/sidebar.css') }}">
 
     <link rel="stylesheet" href="{{ asset('css/admin.css') }}">

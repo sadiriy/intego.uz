@@ -4,46 +4,6 @@
 @stop
 @section('content')
 
-    {{-- MODAL --}}
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content" style="border: none; padding: 20px;">
-                <div class="modal-header" style="border: none; padding: 0 1rem 1rem;">
-                    <h5 class="modal-title" id="exampleModalLabel" style="font-weight: 700; font-size: 18pt;">{{ __('Запрос прайс-листа') }}</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
-                </div>
-                <form class="form_style" action="{{ route('priceList') }}" method="POST"
-                      enctype="multipart/form-data">
-                    @csrf
-                    @method('POST')
-                    <div class="modal-body" style="text-align: left;">
-                        <div class="input-group input-group-sm">
-                            <label style="margin-bottom: 10px;">{{ __('Имя') }}</label>
-                            <input name="name" id="name" type="text" class="form-control" required>
-                        </div>
-                        <div class="input-group input-group-sm">
-                            <label style="margin-bottom: 10px;">{{ __('Номер телефона') }}</label>
-                            <input name="phone" id="phone" type="text" class="form-control" required>
-                        </div>
-                        <div class="input-group input-group-sm">
-                            <label style="margin-bottom: 10px;">{{ __('Категория') }}</label>
-                            <select name="category" id="category" type="text" class="form-control">
-                                <option>{{ __('Не выбрано') }}</option>
-                                @foreach($main_categories as $category)
-                                    <option value="{{$category->id}}">{{ $category->{'name_'.app()->getLocale()} }}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                    </div>
-                    <div class="modal-footer" style="border: none;">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ __('Закрыть') }}</button>
-                        <button type="submit" class="btn btn-success sub">{{ __('Отправить') }}</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-
     <img src="{{ asset('img/sliders/banner_1300_4k.jpg') }}" alt="banner" class="banner-img">
 
     <section class="popular-products">
