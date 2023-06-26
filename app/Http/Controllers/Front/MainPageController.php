@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Calculation;
 use App\Models\Category;
 use App\Models\Contacts;
-use App\Models\MainPageSliders;
+use App\Models\Slider;
 use App\Models\Pages;
 use App\Models\PriceList;
 use App\Models\Product;
@@ -19,10 +19,22 @@ class MainPageController extends Controller
     public function index(){
         $categories = (new Category)->getMainCategories(3);
         $products = (new Product)->getMainProducts(6);
+        $pages = Pages::all();
 
         return view('front/index')->with([
             'main_categories' => $categories,
-            'products' => $products
+            'products' => $products,
+            'pages' => $pages,
+        ]);
+    }
+
+    public function page($page){
+        $page_contents = Pages::where('url', $page)->firstOrFail() ?? abort(404);
+        $contents = file_get_contents( __DIR__ . '/../../../../resources/pages/' . $page_contents->url . '.html') ?? "Пустая страница";
+
+        return view('front/page')->with([
+            'page' => $page_contents,
+            'content' => $contents
         ]);
     }
 

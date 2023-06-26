@@ -1,13 +1,5 @@
 <?php
 
-use App\Http\Controllers\Admin\AttributeController;
-use App\Http\Controllers\Admin\CategoryController;
-use App\Http\Controllers\Admin\GeneralSettingsController;
-use App\Http\Controllers\Admin\MainPageController;
-use App\Http\Controllers\Admin\PageController;
-use App\Http\Controllers\Admin\ParameterController;
-use App\Http\Controllers\Admin\ProductController;
-use App\Http\Controllers\Admin\SliderController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,8 +18,7 @@ Route::group(['namespace' => 'App\Http\Controllers\Front'], function () {
     Route::get('/', 'MainPageController@index');
     Route::get('/category/{category}', 'CategoryController@index')->name('front.category.index');
     Route::get('/product/{product}', 'ProductController@index')->name('front.product.index');
-    Route::get('/about-us', 'MainPageController@about')->name('about');
-    Route::get('/contacts', 'MainPageController@contacts')->name('contacts');
+    Route::get('/pages/{page}', 'MainPageController@page')->name('front.page');
 
     Route::group(['prefix' => 'cart'], function () {
         Route::get('/', 'CartController@index')->name('cart.index');
@@ -70,6 +61,8 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin', 'namespace' => 'App\H
     Route::resource('/{product}/parameters', 'ParameterController');
 
     Route::resource('/pages', 'PageController');
+    Route::get('/pages/{page}', 'PageController@singlePage')->name('back.page');
+    Route::get('/pages/create', 'PageController@create')->name('back.page.create');
 });
 
 Auth::routes();

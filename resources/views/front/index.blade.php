@@ -10,6 +10,9 @@
         <div class="container">
             <h2>{{__('Популярные товары') }}</h2>
             <div class="row">
+{{--                @foreach($pages as $page)--}}
+{{--                    <a href="{{ route('front.page', $page->url) }}">{{ $page->title_ru }}</a>--}}
+{{--                @endforeach--}}
                 @foreach($products as $product)
                 <div class="col-md-4 col-sm-6 col-xs-6">
                     <div class="popular-product-container">

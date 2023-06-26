@@ -3,7 +3,7 @@
 namespace App\Providers;
 
 use App\Models\Category;
-use App\Models\MainPageSliders;
+use App\Models\Slider;
 use App\Models\Pages;
 use App\Models\GeneralSettings;
 use Illuminate\Pagination\Paginator;
@@ -31,10 +31,12 @@ class AppServiceProvider extends ServiceProvider
     {
         Paginator::useBootstrap();
         $categories = (new Category)->getAllCategories();
+        $pages = Pages::all();
         $settings = GeneralSettings::all()->firstOrFail();
         View::share([
             'categories' => $categories,
             'settings' => $settings,
+            'pages' => $pages
             ]);
     }
 }

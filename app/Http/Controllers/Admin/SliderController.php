@@ -3,13 +3,13 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\MainPageSliders;
+use App\Models\Slider;
 use Illuminate\Http\Request;
 
 class SliderController extends Controller
 {
     public function index(){
-        $sliders = MainPageSliders::firstOrFail();
+        $sliders = Slider::firstOrFail();
 
         return view('back/sliders')->with([
             'sliders' => $sliders
@@ -28,7 +28,7 @@ class SliderController extends Controller
         $video_tr_name = '';
         $video_ar_name = '';
 
-        $slider = MainPageSliders::firstOrFail();
+        $slider = Slider::firstOrFail();
         $image_ru = $request->image_url_ru;
         $image_en = $request->image_url_en;
         $image_uz = $request->image_url_uz;
@@ -112,7 +112,7 @@ class SliderController extends Controller
             $video_ar_name = $slider->video_url_ar;
         }
 
-        MainPageSliders::where('id', 1)->update([
+        Slider::where('id', 1)->update([
             'image_url_ru' => $image_ru_name,
             'image_url_en' => $image_en_name,
             'image_url_uz' => $image_uz_name,
@@ -128,13 +128,13 @@ class SliderController extends Controller
         return redirect()->back();
     }
 
-    public function isVideo(MainPageSliders $slider){
+    public function isVideo(Slider $slider){
         if ($slider->is_video == 0) {
-            MainPageSliders::where('id', 1)->update([
+            Slider::where('id', 1)->update([
                 'is_video' => 1
             ]);
         } else {
-            MainPageSliders::where('id', 1)->update([
+            Slider::where('id', 1)->update([
                 'is_video' => 0
             ]);
         }

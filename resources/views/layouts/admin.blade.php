@@ -17,7 +17,7 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/fonts/Noah/import.css') }}">
+{{--    <link rel="stylesheet" type="text/css" href="{{ asset('assets/fonts/Noah/import.css') }}">--}}
 
     <link rel="stylesheet" type="text/css" href="{{ asset('css/sidebar.css') }}">
 
@@ -52,7 +52,7 @@
     <!-- Sidebar-->
     <div class="border-end bg-white" id="sidebar-wrapper">
         <div class="sidebar-heading">
-            <object id="img-logo" height="60px" width="auto" data="{{ asset('img/logo.svg') }}"></object>
+            <object id="img-logo" height="60px" width="auto" data=""></object>
             <br>
 
         </div>

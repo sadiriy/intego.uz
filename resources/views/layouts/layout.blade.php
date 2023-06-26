@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="RU-ru">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,7 +11,7 @@
 
 {{--    <title>{{ config('app.name', 'Laravel') }}</title>--}}
 
-    <title>UNIONCAST | @yield('title')</title>
+    <title>Intego | @yield('title')</title>
 
     <!-- Scripts -->
 
@@ -110,15 +110,11 @@
                         @endforeach
                     </div>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('about') }}">{{ __('О компании') }}</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">{{ __('Где купить') }}</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('contacts') }}">{{ __('Контакты') }}</a>
-                </li>
+                @foreach($pages as $page)
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('front.page', $page->url) }}">{{ $page->title_ru }}</a>
+                    </li>
+                @endforeach
             </ul>
         </div>
     </div>

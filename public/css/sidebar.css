@@ -2728,6 +2728,7 @@ textarea.form-control-lg {
 }
 
 .input-group {
+  flex-direction: column;
   position: relative;
   display: flex;
   flex-wrap: wrap;

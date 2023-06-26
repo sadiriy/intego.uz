@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\MainPageNumbers;
 use App\Models\MainPagePrivileges;
-use App\Models\MainPageSliders;
+use App\Models\Slider;
 use Illuminate\Http\Request;
 
 class MainPageController extends Controller

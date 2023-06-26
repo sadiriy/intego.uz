@@ -106,7 +106,7 @@
 }
 
 /*ABOUT US*/
-.page-container{
+.about-us{
     min-height: 80vh;
 }
 .img-container > img{
@@ -123,8 +123,10 @@
 
 /*CONTACTS*/
 .contacts{
+    display: flex;
+    flex-wrap: wrap;
     min-height: 80vh;
-    padding: 50px 150px;
+    padding: 50px 0px;
 }
 .company-info{
     width: 50%;
