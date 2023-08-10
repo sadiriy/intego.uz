@@ -1,9 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
-@import url("fonts/Greenwich/stylesheet.css");
+@import url("fonts/Gilroy/stylesheet.css");
 
 html,
 body {
-    font-family: "Greenwich";
+    font-family: "Gilroy";
 }
 :root {
     --animate-duration: 1000ms;
@@ -42,6 +42,8 @@ strong {
     padding: 20px;
     border: 0;
     border-radius: 15px;
+    background-color: #6CC41F;
+    color: #fff;
 }
 
 .top-bar{
@@ -57,7 +59,7 @@ strong {
 }
 
 .header-cart-count{
-    background-color: #2c96c1;
+    background-color: #0D8CAD;
     width: 20px;
     height: 20px;
     text-align: center;
@@ -135,7 +137,7 @@ strong {
 
 .navbar {
     height: 52px;
-    background-color: #2c96c1;
+    background-color: #0D8CAD;
     padding: 0;
 }
 
@@ -180,7 +182,7 @@ i {
 .contact-link > a {
     font-weight: 800;
     font-size: 24px;
-    color: #5f707a;
+    color: #2B2A29;
     line-height: 22px;
     margin-bottom: 0;
     letter-spacing: 0.025em;
@@ -190,12 +192,11 @@ i {
     display: block;
     line-height: normal;
     font-weight: normal;
-    color: #5f707a;
+    color: #2B2A29;
 }
 
 .top-bar {
     display: flex;
-    padding: 10px 0;
 }
 
 .top-bar-info {
@@ -264,8 +265,8 @@ i {
     transition: .3s;
 }
 .popular-category-container:hover{
-    background-color: #1b98e0;
-    border-color: #1b98e0;
+    background-color: #0D8CAD;
+    border-color: #0D8CAD;
 }
 .popular-category-container:hover p{
     color: #fff;
@@ -316,7 +317,7 @@ i {
 }
 
 footer {
-    background-color: #13293d;
+    background-color: #2B2A29;
     padding: 30px 40px;
 }
 

@@ -70,7 +70,7 @@
 {{--                    </div>--}}
 {{--                </li>--}}
 {{--            @endif--}}
-            <div class="col-md-7 col-sm-6 col-xs-12">
+            <div class="col-md-7 col-sm-6 col-xs-12" style="display: flex;">
                 <ul class="contact-info">
                     <li class="contact-link">
                         <span class="contact-header-span">Отдел оптовых продаж</span>

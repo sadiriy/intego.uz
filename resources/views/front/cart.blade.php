@@ -45,7 +45,7 @@
         <h1>{{ __('Корзина') }}</h1>
         <div class="cart-header">
             <h3>{{ __('В корзине товаров') }}: {{Cart::count()}}</h3>
-            <a class="btn btn-danger" onclick="return confirm({{ __('Вы точно хотите очистить корзину') }})" style="background-color: #c74c4c" href="{{ route('cart.clear') }}">{{ __('Очистить') }}</a>
+            <a class="btn btn-danger" onclick="return confirm({{ __('Вы точно хотите очистить корзину') }})" style="background-color: #C73A10" href="{{ route('cart.clear') }}">{{ __('Очистить') }}</a>
         </div>
         <section class="cart-section row">
             <div class="col-md-12 col-lg-12 col-xl-12 cart-table">
@@ -75,6 +75,7 @@
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" title="Удалить товар"
+                                            style="background-color: #C73A10"
                                             onclick="return confirm({{ __('Вы точно хотите удалить товар с корзины') }} + '?')"
                                             class='btn btn-danger'><i class='fa fa-trash'></i></button>
                                 </form>
