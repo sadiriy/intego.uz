@@ -34,7 +34,7 @@
                         </div>
                         <div class="input-group input-group-sm">
                             <label style="margin-bottom: 10px;">Описание категории (RU)</label>
-                            <textarea name="description_ru" id="description_ru" type="text" class="form-control" required></textarea>
+                            <textarea name="description_ru" id="description_ru" type="text" class="form-control"></textarea>
                         </div>
                         <div class="input-group input-group-sm">
                             <label style="margin-bottom: 10px;">Позиция</label>

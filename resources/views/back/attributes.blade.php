@@ -27,7 +27,7 @@
                         </div>
                         <div class="input-group input-group-sm">
                             <label style="margin-bottom: 10px;">Ед. измерения RU</label>
-                            <input name="unit_ru" id="unit_ru" type="text" class="form-control" required>
+                            <input name="unit_ru" id="unit_ru" type="text" class="form-control">
                         </div>
                     </div>
                     <div class="modal-footer" style="border: none;">

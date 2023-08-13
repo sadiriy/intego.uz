@@ -12,10 +12,10 @@
         <div class="row" style="justify-content: center">
             <div class="col-12 products-block">
                 <div class="product-main">
-                    <div class="product-image">
+                    <div class="product-image me-lg-5">
                         <img src="{{ asset($product->image) }}" alt="">
                     </div>
-                    <div class="product-info">
+                    <div class="product-info ms-lg-5 ms-md-2 mt-2">
                         <div class="product-info-item"><span id="name">{{ $product->name_ru }}</span></div>
                         <div class="product-info-item"><span id="category"><a href="{{ route('front.category.index', $product->category) }}">{{ $product->category->name_ru }}</a></span></div>
                         <div class="product-info-item"><span id="price">{{ number_format($product->price, 0, '', ' ') }} сум</span></div>

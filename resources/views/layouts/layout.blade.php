@@ -53,7 +53,7 @@
         <div class="top-bar-info row">
             <div class="col-md-2 col-sm-3 col-xs-3 burger-menu"></div>
             <div class="col-md-3 col-sm-6 col-xs-6">
-                <a class="navbar-brand" href="/"><img id='logo-img' src="{{ asset($settings->logo) }}" alt="unioncast"></a>
+                <a class="navbar-brand" href="/"><img id='logo-img' src="{{ asset($settings->logo) }}" alt="intego"></a>
             </div>
 {{--            @if(count(config('app.languages')) > 1)--}}
 {{--                <li class="nav-item dropdown d-md-down-none">--}}
@@ -70,7 +70,7 @@
 {{--                    </div>--}}
 {{--                </li>--}}
 {{--            @endif--}}
-            <div class="col-md-7 col-sm-6 col-xs-12" style="display: flex;">
+            <div class="contact-container col-md-7 col-sm-6 col-xs-12">
                 <ul class="contact-info">
                     <li class="contact-link">
                         <span class="contact-header-span">Отдел оптовых продаж</span>

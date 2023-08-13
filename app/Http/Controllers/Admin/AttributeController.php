@@ -21,7 +21,7 @@ class AttributeController extends Controller
     {
         $data = $request->validate([
            'name_ru' => 'required|max:255',
-           'unit_ru' => 'required|max:255',
+           'unit_ru' => 'max:255',
         ]);
 
         $name = $data['name_ru'];

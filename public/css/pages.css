@@ -124,6 +124,7 @@
 /*CONTACTS*/
 .contacts{
     display: flex;
+    justify-content: space-between;
     flex-wrap: wrap;
     min-height: 80vh;
     padding: 50px 0px;

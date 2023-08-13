@@ -39,7 +39,7 @@ class ProductController extends Controller
             'id' => 'numeric|exists:products,id',
             'slug' => 'required|string|min:5|max:255',
             'name_ru' => 'required|string|min:5|max:255',
-            'description_ru' => 'nullable|string|min:3|max:255',
+            'description_ru' => 'nullable|string|min:3|max:1024',
             'image' => 'mimes:jpg,png',
             'price' => 'required',
             'category' => 'required|numeric|exists:categories,id',
