@@ -29,7 +29,7 @@
                             <select name="attribute_id" id="attribute_id" type="text" class="form-control">
                                 <option>Не выбрано</option>
                                 @foreach($attributes as $attribute)
-                                    <option value="{{$attribute->id}}">{{$attribute->name_ru}} в {{$attribute->unit_ru}}</option>
+                                    <option value="{{$attribute->id}}">{{$attribute->name_ru}}</option>
                                 @endforeach
                             </select>
                         </div>
