@@ -22,7 +22,7 @@
 {{--                    <input class="btn btn-success btn-filter" type="button" value="{{ __('Фильтр') }}">--}}
 {{--                </form>--}}
 {{--            </div>--}}
-            <div class="col-12 products-block">
+            <div class="col-12 products-block mt-3 mb-5">
                 <div class="product-grid row">
 
                     @foreach($products as $product)
@@ -38,6 +38,7 @@
                                         {{ $product->name_ru }}
                                     </a>
                                 </div>
+                                <h6>Рекомендованная розничная цена*</h6>
                                 <div class="product-price">{{ number_format($product->price, 0, '', ' ') }} сум</div>
                                 <div class="product-action">
                                     <form class="cartAddForm" action="{{ route('cart.store')}}" method="POST">

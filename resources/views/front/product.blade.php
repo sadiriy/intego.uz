@@ -18,7 +18,10 @@
                     <div class="product-info ms-lg-5 ms-md-2 mt-2">
                         <div class="product-info-item"><span id="name">{{ $product->name_ru }}</span></div>
                         <div class="product-info-item"><span id="category"><a href="{{ route('front.category.index', $product->category) }}">{{ $product->category->name_ru }}</a></span></div>
-                        <div class="product-info-item"><span id="price">{{ number_format($product->price, 0, '', ' ') }} сум</span></div>
+                        <div class="product-info-item mt-3">
+                            <h6>Рекомендованная розничная цена*</h6>
+                            <span id="price">{{ number_format($product->price, 0, '', ' ') }} сум</span>
+                        </div>
                         <div class="product-info-item">
                             <form class="cartAddForm" action="{{ route('cart.store')}}" method="POST">
                                 @csrf
@@ -38,8 +41,8 @@
                         <button class="btn-tab-switcher active" onclick="openTab('characteristics')">{{ __('Характеристики') }}</button>
                         <button class="btn-tab-switcher" onclick="openTab('description')">{{ __('Описание') }}</button>
                     </div>
-
                     <div id="characteristics" class="tab">
+                        @if($product->parameters->count())
                         <ul class="properties">
                             @foreach($product->parameters as $parameter)
                                 <li>
@@ -48,6 +51,10 @@
                                 </li>
                             @endforeach
                         </ul>
+
+                        @else
+                            Характеристики отсутствуют
+                        @endif
                     </div>
                     <div id="description" class="tab" style="display: none; margin-bottom: 30px">
                         {{ $product->description_ru ?? 'Описание товара отсутствует.' }}
@@ -56,7 +63,8 @@
 
             </div>
         </div>
-        <div class="recommended-products row">
+        @if($recommended_products->count())
+        <div class="recommended-products mt-5 mb-5 row">
             <h2>Рекомендуем посмотреть</h2>
             @foreach($recommended_products as $product)
                 <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
@@ -86,6 +94,7 @@
                 </div>
             @endforeach
         </div>
+        @endif
     </section>
     <script>
         const tabButtons = document.querySelectorAll('.btn-tab-switcher');

@@ -129,6 +129,10 @@ strong {
     padding: 5px;
     text-align: center;
 }
+.dropdown-menu.show{
+    display: flex;
+    min-width: 900px;
+}
 .dropdown-menu > a{
     padding: 10px 20px;
     white-space: normal !important;
@@ -419,6 +423,13 @@ footer {
         .dropdown-menu{
             width: 100%;
         }
+        .dropdown-menu.show{
+            display: block;
+            min-width: 10rem;
+        }
+        .dropdown-menu > a{
+            display: flex;
+        }
         .dropdown-menu > a > img{
             display: none;
         }
@@ -464,9 +475,6 @@ footer {
         }
         .top-bar-info > .burger-menu{
             width: 50px !important;
-        }
-        .dropdown-menu > a{
-            display: flex;
         }
         .popular-products{
             padding: 15px 0;

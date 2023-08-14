@@ -1,7 +1,7 @@
 .category-main{
     display: block;
     margin-top: 40px;
-    min-height: 700px;
+    min-height: 80vh;
 }
 .category-title{
     font-size: 32px;
@@ -25,8 +25,11 @@
     height: 350px;
     display: inline-block;
 }
+.product-name{
+    margin-top: 10px;
+}
 .product-name > a{
-    font-size: 15px;
+    font-size: 20px;
     line-height: 24px;
     text-decoration: none;
     color: #13293d;
@@ -34,7 +37,7 @@
     font-weight: 600;
 }
 .product-price{
-    margin-bottom: 10px;
+    font-size: 17pt;
 }
 .cartAddForm > button{
     outline-style: none;
@@ -86,9 +89,13 @@
 .product-info > .product-info-item > #category > a:hover{
     text-decoration: underline;
 }
+.product-info > .product-info-item > h6, .product-container > h6{
+    margin: 0;
+    font-size: 11pt;
+    color: #878787;
+}
 .product-info > .product-info-item > #price{
     font-weight: 500;
-    margin-top: 10px;
     font-size: 22pt;
 }
 
