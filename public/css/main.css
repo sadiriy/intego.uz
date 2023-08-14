@@ -334,9 +334,12 @@ footer {
     background-color: #2B2A29;
     padding: 30px 40px;
 }
-
+.footer-copyrights{
+    display: grid;
+}
 .footer-copyrights > span{
     color: #fff;
+    font-size: 11pt;
 }
 
 @media (max-width: 1200px) {
@@ -398,6 +401,7 @@ footer {
 
     .footer-copyrights > span {
         font-size: 14px;
+        text-align: center;
     }
 }
     @media (max-width: 991px) {

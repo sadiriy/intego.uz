@@ -144,7 +144,8 @@
 {{--                    <img src="{{ asset($settings->logo_white ?? "") }}" alt="logo">--}}
 {{--                </div>--}}
                 <div class="footer-copyrights">
-                    <span>2023 INTEGO</span>
+                    <span>{{ now()->year }} © INTEGO Uzbekistan</span>
+                    <span>Официальный дистрибьютер <a href="https://www.intego.ru/" target="_blank">INTEGO</a> в Узбекистане</span>
                 </div>
 
             </div>
