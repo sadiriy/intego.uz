@@ -147,7 +147,7 @@
 {{--                </div>--}}
                 <div class="footer-copyrights">
                     <span>{{ now()->year }} © INTEGO Uzbekistan</span>
-                    <span>Официальный дистрибьютер <a href="https://www.intego.ru/" target="_blank">INTEGO</a> в Узбекистане</span>
+                    <span>Официальный дистрибьютер <a href="https://www.intego.ru/" target="_blank" style="color: #F7CC48">INTEGO</a> в Узбекистане</span>
                 </div>
 
             </div>

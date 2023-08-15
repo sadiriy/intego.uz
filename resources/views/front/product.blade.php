@@ -79,6 +79,7 @@
                                 {{ $product->name_ru }}
                             </a>
                         </div>
+                        <h6>Рекомендованная розничная цена*</h6>
                         <div class="product-price">{{ number_format($product->price, 0, '', ' ') }} сум</div>
                         <div class="product-action">
                             <form class="cartAddForm" action="{{ route('cart.store')}}" method="POST">

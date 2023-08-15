@@ -141,6 +141,10 @@ strong {
     max-width: 75%;
     height: auto;
 }
+.dropdown-item.active, .dropdown-item:active{
+    background-color: #e1e1e1;
+    color: #000;
+}
 
 .navbar {
     height: 52px;
