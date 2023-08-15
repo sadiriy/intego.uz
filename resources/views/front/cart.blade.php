@@ -43,6 +43,7 @@
 
     <div class="cart-container">
         <h1>{{ __('Корзина') }}</h1>
+        @if(Cart::count())
         <div class="cart-header">
             <h3>{{ __('В корзине товаров') }}: {{Cart::count()}}</h3>
             <a class="btn btn-danger" onclick="return confirm({{ __('Вы точно хотите очистить корзину') }})" style="background-color: #C73A10" href="{{ route('cart.clear') }}">{{ __('Очистить') }}</a>
@@ -105,6 +106,12 @@
 {{--            <div class="col-md-12 col-lg-3 col-xl-3 order-form">--}}
 {{--            </div>--}}
         </section>
+        @else
+            <div class="cart-header">
+                <h3>{{ __('Ваша корзина пуста') }}</h3>
+                <a class="btn btn-secondary" href="/">{{ __('Вернуться') }}</a>
+            </div>
+        @endif
     </div>
 
 
