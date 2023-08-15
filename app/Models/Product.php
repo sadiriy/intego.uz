@@ -15,7 +15,7 @@ class Product extends Model
     ];
 
     public function getMainProducts(int $amount){
-        return Product::where('is_popular', 1)->take($amount)->get() ?? null;
+        return Product::where('is_popular', 1)->take($amount)->orderBy('id', 'DESC')->get() ?? null;
     }
 
     public function getCategoryProducts(Category $category){
