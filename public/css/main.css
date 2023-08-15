@@ -61,7 +61,7 @@ strong {
 }
 
 .header-cart-count{
-    background-color: #0D8CAD;
+    background-color: #2B2A29;
     width: 20px;
     height: 20px;
     text-align: center;
@@ -421,7 +421,7 @@ footer {
             margin-top: -57px;
         }
         .navbar-collapse{
-            background-color: #13293d;
+            background-color: #2B2A29;
             z-index: 1;
         }
         .dropdown-menu{

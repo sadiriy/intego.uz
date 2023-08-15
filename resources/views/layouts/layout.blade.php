@@ -39,6 +39,8 @@
           integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
           crossorigin="anonymous" referrerpolicy="no-referrer"/>
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
     <link rel="stylesheet" href="{{ asset('slick/slick.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('slick/slick-theme.css') }}"/>
 
@@ -164,10 +166,6 @@
         </div>
     </div>
 </footer>
-<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-<script>
-    AOS.init();
-</script>
 <script>
     const element = document.querySelector('.alert');
     element.style.setProperty('--animate-duration', '0.5s');
