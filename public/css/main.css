@@ -499,4 +499,7 @@ footer {
             font-size: 13px;
             text-align: center;
         }
+        .popular-category-container{
+            margin-bottom: 20px;
+        }
     }

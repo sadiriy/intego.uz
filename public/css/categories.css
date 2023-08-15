@@ -40,6 +40,8 @@
     font-size: 17pt;
 }
 .cartAddForm > button{
+    color: #000;
+    font-weight: 400;
     outline-style: none;
     text-transform: uppercase;
     position: relative;
@@ -217,8 +219,18 @@
         display: flex;
         justify-content: center;
     }
+    .product-name > a{
+        font-size: 17px;
+    }
+    .product-info > .product-info-item > h6, .product-container > h6{
+        font-size: 9pt;
+    }
+    .product-price{
+        font-size: 15pt;
+    }
     .cartAddForm > button{
-        height: 50px;
+        height: 33px;
+        font-size: 11pt;
     }
     .tab{
         padding: 5px;
