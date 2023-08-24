@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Slider extends Model
@@ -11,6 +10,6 @@ class Slider extends Model
     public $timestamps = false;
 
     protected $fillable = [
-        'id', 'image_url'
+        'id', 'slide_image'
     ];
 }

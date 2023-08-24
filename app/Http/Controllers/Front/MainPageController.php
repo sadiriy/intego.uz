@@ -19,11 +19,13 @@ class MainPageController extends Controller
     public function index(){
         $categories = (new Category)->getMainCategories(3);
         $products = (new Product)->getMainProducts(6);
+        $slider_image = Slider::all()->first();
         $pages = Pages::all();
 
         return view('front/index')->with([
             'main_categories' => $categories,
             'products' => $products,
+            'slide' => $slider_image,
             'pages' => $pages,
         ]);
     }

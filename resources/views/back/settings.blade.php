@@ -33,11 +33,6 @@
                                 <td class='text-center'><a class='btn btn-primary' href="{{ route('general.index') }}"><i class='fa fa-edit'></i></a></td>
                             </tr>
                             <tr>
-                                <th scope='row' class='text-center'>2</th>
-                                <td class='text-center'>Главная страница</td>
-                                <td class='text-center'><a class='btn btn-primary' href="{{ route('mainpage.index') }}"><i class='fa fa-edit'></i></a></td>
-                            </tr>
-                            <tr>
                                 <th scope='row' class='text-center'>3</th>
                                 <td class='text-center'>Слайдер</td>
                                 <td class='text-center'><a class='btn btn-primary' href="{{ route('sliders.index') }}"><i class='fa fa-edit'></i></a></td>

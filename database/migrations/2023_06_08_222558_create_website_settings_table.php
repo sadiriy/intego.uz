@@ -14,12 +14,13 @@ return new class extends Migration
     public function up()
     {
         Schema::create('website_settings', function (Blueprint $table) {
+            $table->id();
             $table->string('phone');
-            $table->string('email');
+            $table->string('email')->nullable();
             $table->string('logo');
-            $table->string('fb_ling');
-            $table->string('in_link');
-            $table->string('tg_link');
+            $table->string('fb_link')->nullable();
+            $table->string('in_link')->nullable();
+            $table->string('tg_link')->nullable();
         });
     }
 

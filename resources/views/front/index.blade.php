@@ -4,7 +4,7 @@
 @stop
 @section('content')
 
-    <img src="{{ asset('img/sliders/banner_1300_4k.jpg') }}" alt="banner" class="banner-img">
+    <img src="{{ asset($slide->slide_image) }}" alt="banner" class="banner-img">
 
     <section class="popular-products">
         <div class="container">
