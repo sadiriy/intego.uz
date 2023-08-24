@@ -52,44 +52,28 @@
     <!-- Sidebar-->
     <div class="border-end bg-white" id="sidebar-wrapper">
         <div class="sidebar-heading">
-            <object id="img-logo" height="60px" width="auto" data=""></object>
-            <br>
+            <img id='logo-img' class="p-2" src="{{ asset($settings->logo) }}" alt="intego" width="250">
 
         </div>
         <div class="list-group list-group-flush">
             <a class="list-group-item list-group-item-action list-group-item-light p-3" target="_blank" href="/"><i class="fas fa-home fa-fw"></i>
                 <p>Пейрейти на сайт</p></a>
-                <a id="active-forms" class="list-group-item list-group-item-action list-group-item-light p-3"
+                <a id="active-forms" class="list-group-item list-group-item-action list-group-item-light p-3 {{ request()->routeis('pages*') ? "active disabled" : "" }}"
                    href="{{ route('pages.index') }}"><i class="fa-solid fa-code-fork fa-fw"></i>
                     <p>Страницы</p></a>
-                <a id="active-branches" class="list-group-item list-group-item-action list-group-item-light p-3"
+                <a id="active-branches" class="list-group-item list-group-item-action list-group-item-light p-3 {{ request()->routeis('categories*') ? "active disabled" : "" }}"
                    href=" {{ route('categories.index') }} "><i class="fa-solid fa-folder fa-fw"></i>
                     <p>Категории</p></a>
-                <a id="active-branches" class="list-group-item list-group-item-action list-group-item-light p-3"
+                <a id="active-branches" class="list-group-item list-group-item-action list-group-item-light p-3 {{ request()->routeis('products*') ? "active disabled" : "" }}"
                    href=" {{ route('products.index') }} "><i class="fa-solid fa-cube fa-fw"></i>
                     <p>Товары</p></a>
-                <a id="active-branches" class="list-group-item list-group-item-action list-group-item-light p-3"
+                <a id="active-branches" class="list-group-item list-group-item-action list-group-item-light p-3 {{ request()->routeis('attributes*') ? "active disabled" : "" }}"
                    href=" {{ route('attributes.index') }} "><i class="fa-solid fa-ruler-horizontal fa-fw"></i>
                     <p>Атрибуты</p></a>
-{{--                <a id="active-branches" class="list-group-item list-group-item-action list-group-item-light p-3"--}}
-{{--                   href=" {{ route('partners.index') }} "><i class="fa-solid fa-handshake"></i>--}}
-{{--                    <p>Партнеры</p></a>--}}
-{{--                <a id="active-branches" class="list-group-item list-group-item-action list-group-item-light p-3"--}}
-{{--                   href=" {{ route('certificates.admin') }} "><i class="fa-solid fa-certificate"></i>--}}
-{{--                    <p>Сертификаты</p></a>--}}
-{{--                <a id="active-branches" class="list-group-item list-group-item-action list-group-item-light p-3"--}}
-{{--                   href=" {{ route('overviews.admin') }} "><i class="fa-solid fa-star"></i>--}}
-{{--                    <p>Отзывы</p></a>--}}
-                <a class="list-group-item list-group-item-action list-group-item-light p-3"
+                <a class="list-group-item list-group-item-action list-group-item-light p-3 {{ request()->routeis('orders*') ? "active disabled" : "" }}"
                href="{{ route('orders.index') }}"><i class="fa-solid fa-bell fa-fw"></i>
                 <p>Заказы</p></a>
-{{--                <a class="list-group-item list-group-item-action list-group-item-light p-3"--}}
-{{--               href="{{ route('priceListRequests.index') }}"><i class="fa-solid fa-money-check-dollar fa-fw"></i>--}}
-{{--                <p>Прайс-лист</p></a>--}}
-{{--                <a class="list-group-item list-group-item-action list-group-item-light p-3"--}}
-{{--               href="{{ route('calculations.index') }}"><i class="fa-solid fa-calculator fa-fw"></i>--}}
-{{--                <p>Расчет</p></a>--}}
-                <a class="list-group-item list-group-item-action list-group-item-light p-3"
+                <a class="list-group-item list-group-item-action list-group-item-light p-3 {{ request()->routeis('settings*') ? "active disabled" : "" }}"
                href="{{ route('settings.index') }}"><i class="fa-solid fa-gears fa-fw"></i>
                 <p>Настройки</p></a>
         </div>
@@ -123,6 +107,27 @@
                 </div>
             </div>
         </nav>
+        {{--ALERT--}}
+        @if(session('error'))
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                {{ session('error') }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        @elseif($errors->any())
+            <div class="alert alert-danger alert-dismissible fade show">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @elseif(session('success'))
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                {{ session('success') }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        @endif
+
         <!-- Page content-->
         <div class="container-fluid content-body">
 

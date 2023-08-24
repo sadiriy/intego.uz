@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
+
     public function index()
     {
         $categories = (new Category)->getAllCategories();
@@ -36,7 +37,7 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
-            'id' => 'numeric|exists:products,id',
+            'id' => 'nullable|numeric|exists:products,id',
             'slug' => 'required|string|min:5|max:255',
             'name_ru' => 'required|string|min:5|max:255',
             'description_ru' => 'nullable|string|min:3|max:1024',
@@ -50,15 +51,22 @@ class ProductController extends Controller
             $request['image']->move(public_path('img/products/'), $imageName);
         }
 
-        $product = $request['id'] ? Product::find($request['id']) : new Product();
-        $product->slug = $data['slug'];
-        $product->name_ru = $data['name_ru'];
-        $product->description_ru = $data['description_ru'];
-        $product->image = $imageName ?? $product->image ?? '';
-        $product->price = $data['price'];
-        $product->category_id = $data['category'];
-        $product->is_popular = (bool)$request['is_popular'];
-        $product->save();
+        try {
+            $product = $request['id'] ? Product::find($request['id']) : new Product();
+            $product->slug = $data['slug'];
+            $product->name_ru = $data['name_ru'];
+            $product->description_ru = $data['description_ru'];
+            $product->image = $imageName ?? $product->image ?? '';
+            $product->price = $data['price'];
+            $product->category_id = $data['category'];
+            $product->is_popular = (bool)$request['is_popular'];
+            $product->save();
+        }
+        catch (\Exception $e){
+            return back()->with('error', $e);
+        }
+
+
         return redirect()->route('products.index')->with('success_message', $request['id'] ? 'Товар успешно изменен.' : 'Товар успешно создан.');
 
     }
