@@ -1,3 +1,72 @@
+<style>
+    .page-container{
+        padding-top: 30px;
+    }
+    .page-container > h2{
+        font-weight: 500;
+    }
+    .partner-logos{
+        justify-content: space-around;
+    }
+    .partner-logo{
+        padding: 20px;
+    }
+    .partner-logo > a > img{
+        width: 100%;
+        height: auto;
+        border-radius: 40px;
+        margin-bottom: 15px;
+    }
+    .partner-logo > a > label{
+        font-size: 14pt;
+        width: 100%;
+        text-align: center;
+        color: #000000;
+    }
+    .partner-logo:hover{
+        cursor: pointer;
+
+    }
+    @media (max-width:767px){
+        .partner-logo{
+            padding: 10px;
+        }
+        .partner-logo > a > img{
+            border-radius: 15px;
+            margin-bottom: 10px;
+        }
+        .partner-logo > a > label{
+            font-size: 11pt;
+            line-height: 11pt;
+        }
+    }
+</style>
 <div class="page-container">
-    <p class="mt-5">Страница скоро будет доступна</p>
+    <h2>Где можно купить нашу продукцию</h2>
+    <div class="row partner-logos">
+        <div class="col-lg-3 col-md-3 col-4">
+            <div class="partner-logo">
+                <a target="_blank" href="https://uzum.uz/">
+                    <img src="../../img/partners/uzum.jpg" alt="">
+                    <label>Uzum Market</label>
+                </a>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-3 col-4">
+            <div class="partner-logo">
+                <a target="_blank" href="https://olcha.uz/">
+                    <img src="../../img/partners/olcha.jpg" alt="">
+                    <label>Olcha</label>
+                </a>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-3 col-4">
+            <div class="partner-logo">
+                <a target="_blank" href="https://www.zoodmall.uz/">
+                    <img src="../../img/partners/zoodmall.jpg" alt="">
+                    <label>ZoodMall</label>
+                </a>
+            </div>
+        </div>
+    </div>
 </div>
