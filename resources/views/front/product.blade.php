@@ -58,6 +58,7 @@
                     </div>
                     <div id="description" class="tab" style="display: none; margin-bottom: 30px">
                         {{ $product->description_ru ?? 'Описание товара отсутствует.' }}
+                        {!! $product_description !!}
                     </div>
                 </div>
 
